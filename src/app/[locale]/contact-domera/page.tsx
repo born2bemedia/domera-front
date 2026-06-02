@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { ContactDetails, ContactHero, ContactShareVision } from "./components";
 
 export const metadata: Metadata = {
-  title: "Contact Doméra | Let’s Begin the Conversation",
+  title: "Contact Doméra - We’re Here to Help You Build Your Dream",
   description:
-    "Reach out to Doméra. Share your project details and our team will respond within 1–2 business days to support your vision.",
+    "Reach out to Doméra for personalized support, project inquiries, or any questions regarding our designs and services. Let’s start the conversation.",
   openGraph: {
-    title: "Contact Doméra | Let’s Begin the Conversation",
+    title: "Contact Doméra - We’re Here to Help You Build Your Dream",
     description:
-      "Reach out to Doméra. Share your project details and our team will respond within 1–2 business days to support your vision.",
+      "Reach out to Doméra for personalized support, project inquiries, or any questions regarding our designs and services. Let’s start the conversation.",
     images: "https://domeraglobal.com/images/meta.png",
   },
 };
