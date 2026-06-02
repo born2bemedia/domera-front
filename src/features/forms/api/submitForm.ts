@@ -1,4 +1,4 @@
-import type { BriefFormSchema, RequestFormSchema } from '../model/schemas';
+import type { BriefFormSchema, ContactFormSchema, RequestFormSchema } from '../model/schemas';
 
 export async function submitForm(
   formType: 'request',
@@ -31,6 +31,19 @@ export async function submitBriefForm(data: BriefFormSchema): Promise<void> {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ formType: 'brief', data }),
+  });
+
+  if (!res.ok) {
+    const json = (await res.json().catch(() => ({}))) as { message?: string };
+    throw new Error(json?.message ?? 'Submission failed');
+  }
+}
+
+export async function submitContactForm(data: ContactFormSchema): Promise<void> {
+  const res = await fetch('/api/forms', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ formType: 'contact', data }),
   });
 
   if (!res.ok) {

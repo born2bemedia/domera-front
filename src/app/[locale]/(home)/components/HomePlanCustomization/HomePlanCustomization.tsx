@@ -125,7 +125,7 @@ export const HomePlanCustomization = () => {
                         ))}
                       </ul>
                     </div>
-                    <Link href="/contacts" className={styles.plan__cta}>
+                    <Link href="/contact-domera" className={styles.plan__cta}>
                       {t("cta", { fallback: "→ Request a Customization" })}
                     </Link>
                   </div>

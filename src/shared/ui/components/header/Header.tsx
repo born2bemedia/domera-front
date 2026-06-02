@@ -83,7 +83,7 @@ export const Header = () => {
     {
       key: "contacts",
       text: t("contact-domera", { fallback: "Contact Doméra" }),
-      href: "/contacts",
+      href: "/contact-domera",
     },
   ] as const;
 

@@ -131,6 +131,22 @@
     "descriptionLine3": "Our principles:",
     "footnote": "Every plan is created to be built, lived in, and refined when needed."
   },
+  "contacts": {
+    "phoneLabel": "Phone:",
+    "emailLabel": "Email:",
+    "officeLabel": "Office Address:",
+    "registeredLabel": "Registered Address:",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "directTitle": "Direct Contact Information",
+    "connectTitle": "Connect With Doméra",
+    "connectText": "Follow Doméra for architectural insights, new releases, and curated design inspiration.",
+    "heroTitle": "Let’s Begin the Conversation",
+    "heroSubtitle": "Reach out using the details below or submit your project information through the contact form. The more context you provide, the more precisely we can support your vision.",
+    "shareTitle": "Share Your Vision",
+    "shareDescription": "Provide your project details below, and our team will review your request with precision and care."
+  },
   "forgotPasswordPage": {
     "heroTitle": "Forgot Password?",
     "heroSubtitle": "Enter your username or email address, and we’ll send you a secure link to set a new password.",
@@ -495,6 +511,44 @@
       "responseNote": "We respond within 2 business days."
     },
     "loading": "Sending…",
+    "contact": {
+      "timelineWithin3": "Within 3 months",
+      "timeline36": "3–6 months",
+      "timeline612": "6–12 months",
+      "timeline12plus": "12+ months",
+      "timelineNotSure": "Not sure yet",
+      "siteOwn": "I own the land",
+      "sitePurchasing": "Purchase in progress",
+      "siteSearching": "Searching for land",
+      "siteNone": "No site yet",
+      "proIndividual": "Private individual",
+      "proArchitect": "Architect / Designer",
+      "proDeveloper": "Developer",
+      "proContractor": "Contractor",
+      "proOther": "Other",
+      "locUrban": "Urban",
+      "locSuburban": "Suburban",
+      "locRural": "Rural / Countryside",
+      "locCoastal": "Coastal",
+      "locMountain": "Mountain / Alpine",
+      "successTitle": "Thank you for contacting Doméra!",
+      "successLine1": "Your inquiry has been successfully received.",
+      "successLine2": "Our team will carefully review your details and respond within 1–2 business days.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "budgetRange": "Estimated Budget Range",
+      "stylePreference": "Style Preference",
+      "constructionTimeline": "Expected Construction Timeline",
+      "selectPlaceholder": "Select an option",
+      "siteStatus": "Site Status",
+      "professionalStatus": "Professional Status",
+      "buildLocation": "Intended Build Location",
+      "additionalNotes": "Additional Notes",
+      "submit": "→ Submit Inquiry",
+      "responseNote": "Your time matters. Once we receive your message, our team will carefully review your inquiry and respond within 1–2 business days."
+    },
     "requestForm": {
       "successTitle": "Thank you!",
       "successMessage1": "Your request for our service has been successfully submitted. Our team will review the information provided and get in touch with you shortly to discuss the next steps and how we can assist you."
@@ -593,8 +647,8 @@
     "contact-domera": "Contact Doméra",
     "register": "Register",
     "login": "Login",
-    "close": "close",
-    "menu": "menu"
+    "close": "Close menu",
+    "menu": "Open menu"
   },
   "priceList": {
     "title": "Check our full price list",

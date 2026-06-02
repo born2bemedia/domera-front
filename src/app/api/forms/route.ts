@@ -27,15 +27,31 @@ type BriefPayload = {
   projectNotes?: string;
 };
 
+type ContactPayload = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  budgetRange?: string;
+  stylePreference?: string;
+  constructionTimeline?: string;
+  siteStatus?: string;
+  professionalStatus?: string;
+  buildLocation?: string;
+  additionalNotes?: string;
+};
+
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const body = (await request.json()) as {
-      formType: 'request' | 'brief';
-      data: (RequestPayload | BriefPayload) & { recaptcha?: string };
+      formType: 'request' | 'brief' | 'contact';
+      data: (RequestPayload | BriefPayload | ContactPayload) & { recaptcha?: string };
     };
 
     const { formType } = body;
-    const rawData = body.data as (RequestPayload | BriefPayload) & { recaptcha?: string };
+    const rawData = body.data as (RequestPayload | BriefPayload | ContactPayload) & {
+      recaptcha?: string;
+    };
 
     const recaptcha = rawData.recaptcha;
 
@@ -209,6 +225,33 @@ export async function POST(request: Request): Promise<NextResponse> {
       });
 
       console.log(`Brief submission received from ${userEmail}`);
+    } else if (formType === 'contact') {
+      const d = data as unknown as ContactPayload;
+      userEmail = d.email;
+      subject = 'Contact Doméra — New Inquiry';
+      html = `
+        <h2>Contact Doméra — New Inquiry</h2>
+        <p><strong>First name:</strong> ${escapeHtml(d.firstName)}</p>
+        <p><strong>Last name:</strong> ${escapeHtml(d.lastName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(d.email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(d.phone)}</p>
+        <p><strong>Estimated budget range:</strong> ${escapeHtml(d.budgetRange)}</p>
+        <p><strong>Style preference:</strong> ${escapeHtml(d.stylePreference)}</p>
+        <p><strong>Expected construction timeline:</strong> ${escapeHtml(d.constructionTimeline)}</p>
+        <p><strong>Site status:</strong> ${escapeHtml(d.siteStatus)}</p>
+        <p><strong>Professional status:</strong> ${escapeHtml(d.professionalStatus)}</p>
+        <p><strong>Intended build location:</strong> ${escapeHtml(d.buildLocation)}</p>
+        <p><strong>Additional notes:</strong> ${escapeHtml(d.additionalNotes)}</p>
+      `;
+
+      await sgMail.send({
+        to: adminEmail,
+        from: fromEmail,
+        subject,
+        html,
+      });
+
+      console.log(`Contact inquiry received from ${userEmail}`);
     }
   } catch (error) {
     console.error('Error submitting request:', error);
