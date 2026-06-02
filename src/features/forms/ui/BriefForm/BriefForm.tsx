@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
@@ -12,8 +13,9 @@ import {
   briefFormSchema,
 } from "@/features/forms/model/schemas";
 
-import { FormPopup } from "../FormPopup/FormPopup";
 import styles from "./BriefForm.module.scss";
+
+import { Link } from "@/i18n/navigation";
 
 export const BriefForm = () => {
   const t = useTranslations("forms");
@@ -50,54 +52,76 @@ export const BriefForm = () => {
     }
   };
 
+  useEffect(() => {
+    if (!isSuccess) return;
+
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = overflow;
+    };
+  }, [isSuccess]);
+
+  const handleClose = () => {
+    setIsSuccess(false);
+    reset();
+  };
+
   return (
     <>
-      <FormPopup
-        isOpen={isSuccess}
-        onClose={() => setIsSuccess(false)}
-        ariaLabelledBy="brief-success-title"
-        panelClassName={styles.brief__popup}
-      >
-        <button
-          type="button"
-          className={styles.brief__popupClose}
-          onClick={() => setIsSuccess(false)}
-          aria-label={t("close", { fallback: "Close" })}
+      {isSuccess && (
+        <div
+          className={styles.brief__thanks}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="brief-success-title"
         >
-          &times;
-        </button>
-        <h3 id="brief-success-title" className={styles.brief__popupTitle}>
-          {t("brief.successTitle", {
-            fallback: "Thank you for contacting Doméra!",
-          })}
-        </h3>
-        <div className={styles.brief__popupText}>
-          <p>
-            {t("brief.successLine1", {
-              fallback: "Your request has been successfully received.",
-            })}
-          </p>
-          <p>
-            {t("brief.successLine2", {
-              fallback:
-                "Our team will review the details and reach out to you shortly to discuss the next steps of your project.",
-            })}
-          </p>
-          <p>
-            {t("brief.successLine3", {
-              fallback:
-                "We look forward to helping you move from planning to realization.",
-            })}
-          </p>
+          <div className={styles.brief__thanksCard}>
+            <div className={styles.brief__thanksBg} aria-hidden>
+              <Image
+                src="/images/thanks_back_2.png"
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 1142px"
+                className={styles.brief__thanksImage}
+              />
+              <div className={styles.brief__thanksOverlay} />
+            </div>
+            <div className={styles.brief__thanksContent}>
+              <div className={styles.brief__thanksHeadline}>
+                <h2 id="brief-success-title" className={styles.brief__thanksTitle}>
+                  {t("brief.successTitle", {
+                    fallback: "Thank you for contacting Doméra!",
+                  })}
+                </h2>
+                <div className={styles.brief__thanksText}>
+                  <p>
+                    {t("brief.successLine1", {
+                      fallback: "Your request has been successfully received.",
+                    })}
+                  </p>
+                  <p>
+                    {t("brief.successLine2", {
+                      fallback:
+                        "Our team will review the details and reach out to you shortly to discuss the next steps of your project.",
+                    })}
+                  </p>
+                  <p>
+                    {t("brief.successLine3", {
+                      fallback:
+                        "We look forward to helping you move from planning to realization.",
+                    })}
+                  </p>
+                </div>
+              </div>
+              <Link href="/" onClick={handleClose} className={styles.brief__thanksBtn}>
+                {t("returnHome", { fallback: "→ Return to home page" })}
+              </Link>
+            </div>
+          </div>
         </div>
-        <button
-          type="button"
-          className={styles.brief__popupBtn}
-          onClick={() => setIsSuccess(false)}
-        >
-          {t("close", { fallback: "Close" })}
-        </button>
-      </FormPopup>
+      )}
 
       <form className={styles.brief} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div

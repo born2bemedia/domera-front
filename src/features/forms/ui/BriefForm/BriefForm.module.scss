@@ -6,6 +6,7 @@ $gambetta: var(--font-gambetta), serif;
 
 $ink-900: #121110;
 $ink-50: #faf9f8;
+$ink-100: #f6f5f4;
 $muted: #7a7067;
 $border: #cec8c0;
 $rule: #e8e4de;
@@ -119,71 +120,121 @@ $error-surface: #fdf3f2;
   }
 }
 
-/* ---------- Success popup ---------- */
-.brief__popup {
+/* ---------- Success popup (centered card over a dimmed page) ---------- */
+.brief__thanks {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.4);
+  font-family: $cabinet;
+}
+
+.brief__thanksCard {
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 1142px;
+  max-width: 100%;
+  min-height: 476px;
+  max-height: 90vh;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.brief__thanksBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.brief__thanksImage {
+  object-fit: cover;
+}
+
+.brief__thanksOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.brief__thanksContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  min-width: 0;
+}
+
+.brief__thanksHeadline {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 100%;
-  max-width: 520px;
-  max-height: 95vh;
-  padding: 40px;
-  border: 1px solid $rule;
-  border-radius: 4px;
-  background: #ffffff;
-  overflow-y: auto;
-  font-family: $cabinet;
-
-  @include mobile {
-    padding: 28px 22px;
-  }
+  max-width: 1000px;
 }
 
-.brief__popupClose {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  padding: 4px 8px;
-  border: none;
-  background: none;
-  color: $muted;
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: $ink-900;
-  }
-}
-
-.brief__popupTitle {
-  max-width: 90%;
+.brief__thanksTitle {
   font-family: $gambetta;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 36px;
-  letter-spacing: -0.5px;
-  color: $ink-900;
-
-  @include mobile {
-    font-size: 24px;
-    line-height: 30px;
-  }
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -2px;
+  color: $ink-50;
 }
 
-.brief__popupText {
+.brief__thanksText {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size: 15px;
-  line-height: 24px;
-  color: $muted;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 28px;
+  color: $ink-100;
 }
 
-.brief__popupBtn {
+.brief__thanksBtn {
   @include domera-btn-primary;
-  align-self: flex-start;
-  margin-top: 8px;
+}
+
+@include tablet {
+  .brief__thanksTitle {
+    font-size: 52px;
+    line-height: 60px;
+    letter-spacing: -1.5px;
+  }
+}
+
+@include mobile {
+  .brief__thanks {
+    padding: 16px;
+  }
+
+  .brief__thanksCard {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .brief__thanksTitle {
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -1px;
+  }
+
+  .brief__thanksText {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .brief__thanksBtn {
+    width: 100%;
+  }
 }

@@ -493,7 +493,6 @@
     "decreaseGuests": "Decrease guests"
   },
   "forms": {
-    "close": "Close",
     "brief": {
       "successTitle": "Thank you for contacting Doméra!",
       "successLine1": "Your request has been successfully received.",
@@ -510,6 +509,7 @@
       "submit": "→ Submit Your Brief",
       "responseNote": "We respond within 2 business days."
     },
+    "returnHome": "Return to home page",
     "loading": "Sending…",
     "contact": {
       "timelineWithin3": "Within 3 months",
@@ -549,11 +549,11 @@
       "submit": "→ Submit Inquiry",
       "responseNote": "Your time matters. Once we receive your message, our team will carefully review your inquiry and respond within 1–2 business days."
     },
+    "close": "Close",
     "requestForm": {
       "successTitle": "Thank you!",
       "successMessage1": "Your request for our service has been successfully submitted. Our team will review the information provided and get in touch with you shortly to discuss the next steps and how we can assist you."
     },
-    "returnHome": "Return to home page",
     "fullName": "Full name",
     "fullNamePlaceholder": "Enter your full name",
     "email": "Email address",
@@ -567,6 +567,54 @@
     "message": "Message",
     "messagePlaceholder": "Enter your message",
     "submit": "Submit"
+  },
+  "quoteForm": {
+    "garageTitle": "Garage Refinements",
+    "garageSubtitle": "Indicate the structural or technical adjustments required.",
+    "gazeboTitle": "Gazebo Refinements",
+    "gazeboSubtitle": "Select the adjustments you would like incorporated.",
+    "residentialTitle": "Residential Refinements",
+    "residentialSubtitle": "Select the planning adjustments you would like us to evaluate. Multiple selections are possible.",
+    "step1Title": "Structured Planning Inquiry",
+    "step1Lead1": "We are pleased to assist you in shaping your project.",
+    "step1Lead2": "Complete the form below to outline your required refinements and specifications. The information provided allows our studio to prepare a structured proposal aligned with your architectural direction, technical requirements, and timeline expectations.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "designPreferences": "Design Preferences",
+    "additionalInformation": "Additional Information",
+    "preferredContact": "Preferred Method of Contact",
+    "contactEmail": "Email",
+    "contactPhone": "Phone Call",
+    "contactText": "Text",
+    "projectType": "Project Type",
+    "typeHome": "Home",
+    "typeGarage": "Garage",
+    "typeGazebo": "Gazebo",
+    "continue": "→ Continue",
+    "step3Title": "Additional Project Details",
+    "additionalComments": "Additional Comments or Special Requests",
+    "preferredStartDate": "Preferred Project Start Date",
+    "selectPlaceholder": "Select an option",
+    "startImmediately": "Immediately",
+    "start13": "Within 1–3 months",
+    "start36": "Within 3–6 months",
+    "start6plus": "6+ months",
+    "startFlexible": "Flexible",
+    "hasTimeline": "Do You Have a Project Timeline in Mind?",
+    "yes": "Yes",
+    "no": "No",
+    "uploadLabel": "Upload Project Timeline",
+    "ifNeeded": "(if needed)",
+    "uploadFile": "Upload File",
+    "loading": "Sending…",
+    "submit": "→ Submit Planning Request",
+    "thanksTitle": "Thank you for submitting your planning inquiry.",
+    "thanksLine1": "Our team will carefully review your selected specifications and project parameters.",
+    "thanksLine2": "You will receive a structured response outlining the proposed adjustments and associated estimate.",
+    "thanksLine3": "We look forward to refining your project with precision.",
+    "returnHome": "→ Return to home page"
   },
   "notFoundPage": {
     "title": "This Destination Doesn’t Exist",
