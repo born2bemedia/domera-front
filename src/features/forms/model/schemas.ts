@@ -79,3 +79,29 @@ export const contactFormSchema = z.object({
 });
 
 export type ContactFormSchema = z.infer<typeof contactFormSchema>;
+
+// 4. "Custom Quote Request" — multi-step planning inquiry
+export const quoteFormSchema = z.object({
+  // Step 1 — Structured Planning Inquiry
+  firstName: z.string().min(1, "This field is required"),
+  lastName: z.string().min(1, "This field is required"),
+  email: emailSchema,
+  phone: optionalPhoneSchema,
+  designPreferences: optionalText,
+  additionalInformation: optionalText,
+  preferredContact: optionalText,
+  projectType: z
+    .array(z.enum(["home", "garage", "gazebo"]))
+    .min(1, "Please select at least one project type"),
+  // Step 2 — Refinements (one screen per selected project type)
+  refinementsHome: z.array(z.string()).optional(),
+  refinementsGarage: z.array(z.string()).optional(),
+  refinementsGazebo: z.array(z.string()).optional(),
+  // Step 3 — Additional Project Details
+  additionalComments: optionalText,
+  preferredStartDate: optionalText,
+  hasTimeline: optionalText,
+  timelineFileName: optionalText,
+});
+
+export type QuoteFormSchema = z.infer<typeof quoteFormSchema>;
