@@ -106,36 +106,6 @@ $error-surface: #fdf3f2;
     text-align: center;
   }
 
-  /* ---------- Success ---------- */
-  &__success {
-    grid-column: 1 / span 2;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 16px 0;
-  }
-
-  &__successTitle {
-    font-family: $gambetta;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.25px;
-    color: $ink-900;
-  }
-
-  &__successText {
-    font-size: 14px;
-    line-height: 22px;
-    color: $muted;
-  }
-
-  &__again {
-    @include domera-btn-primary;
-    align-self: flex-start;
-  }
-
   @include mobile {
     width: 100%;
     grid-template-columns: 1fr;
@@ -143,9 +113,77 @@ $error-surface: #fdf3f2;
     &__fieldFull,
     &__submit,
     &__caption,
-    &__submitError,
-    &__success {
+    &__submitError {
       grid-column: 1 / span 1;
     }
   }
+}
+
+/* ---------- Success popup ---------- */
+.brief__popup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 95vh;
+  padding: 40px;
+  border: 1px solid $rule;
+  border-radius: 4px;
+  background: #ffffff;
+  overflow-y: auto;
+  font-family: $cabinet;
+
+  @include mobile {
+    padding: 28px 22px;
+  }
+}
+
+.brief__popupClose {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 4px 8px;
+  border: none;
+  background: none;
+  color: $muted;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $ink-900;
+  }
+}
+
+.brief__popupTitle {
+  max-width: 90%;
+  font-family: $gambetta;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.5px;
+  color: $ink-900;
+
+  @include mobile {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+.brief__popupText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 24px;
+  color: $muted;
+}
+
+.brief__popupBtn {
+  @include domera-btn-primary;
+  align-self: flex-start;
+  margin-top: 8px;
 }

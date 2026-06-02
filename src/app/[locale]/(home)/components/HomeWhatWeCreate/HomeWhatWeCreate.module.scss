@@ -57,6 +57,12 @@ $label: #5e5033;
     color: $ink-900;
   }
 
+  &__subtitle {
+    font-size: 14px;
+    line-height: 22px;
+    color: $ink-600;
+  }
+
   /* ---------- Cards ---------- */
   &__cards {
     display: grid;

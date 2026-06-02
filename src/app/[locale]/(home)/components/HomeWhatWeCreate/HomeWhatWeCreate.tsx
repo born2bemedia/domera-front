@@ -23,7 +23,7 @@ export const HomeWhatWeCreate = () => {
       title: t("homePlansTitle", { fallback: "Home Plans" }),
       description: t("homePlansDescription", {
         fallback:
-          "From compact single-story designs to multi-level family homes — every plan is drawn with functional precision.",
+          "House layouts organized around everyday use, spatial clarity, and long-term comfort.",
       }),
     },
     {
@@ -32,7 +32,7 @@ export const HomeWhatWeCreate = () => {
       title: t("garageTitle", { fallback: "Garage Structures" }),
       description: t("garageDescription", {
         fallback:
-          "Attached, detached, or integrated — Doméra delivers garage plans that complement and serve the main residence.",
+          "Functional layouts designed for access, storage, and integration with the main building.",
       }),
     },
     {
@@ -41,7 +41,7 @@ export const HomeWhatWeCreate = () => {
       title: t("outdoorTitle", { fallback: "Outdoor Spaces" }),
       description: t("outdoorDescription", {
         fallback:
-          "Gazebos, pergolas, garden studios — thoughtfully designed structures that extend your living space outward.",
+          "Gazebos and exterior structures that extend usable space while maintaining balance with the overall design.",
       }),
     },
   ] as const;
@@ -60,6 +60,12 @@ export const HomeWhatWeCreate = () => {
                 {t("title", { fallback: "What We Create" })}
               </h2>
             </div>
+            <p className={styles.wwc__subtitle}>
+              {t("subtitle", {
+                fallback:
+                  "Our work is focused on three core areas, each developed with a clear purpose and defined scope.",
+              })}
+            </p>
           </div>
 
           <div className={styles.wwc__cards}>

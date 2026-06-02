@@ -9,7 +9,6 @@ import styles from "./HomeWhyDomera.module.scss";
 type WhyFeature = {
   key: string;
   title: string;
-  description: string;
 };
 
 export const HomeWhyDomera = () => {
@@ -19,34 +18,18 @@ export const HomeWhyDomera = () => {
     {
       key: "spatial-logic",
       title: t("feature1Title", { fallback: "Clear Spatial Logic" }),
-      description: t("feature1Description", {
-        fallback:
-          "Every room, every transition — designed with intentional spatial flow.",
-      }),
     },
     {
       key: "usability",
       title: t("feature2Title", { fallback: "Real-World Usability" }),
-      description: t("feature2Description", {
-        fallback:
-          "Plans shaped by real feedback, real budgets, and real construction conditions.",
-      }),
     },
     {
       key: "adaptable",
       title: t("feature3Title", { fallback: "Adaptable Layouts" }),
-      description: t("feature3Description", {
-        fallback:
-          "Flexible core structures that let you expand, modify, or repurpose.",
-      }),
     },
     {
       key: "long-term",
       title: t("feature4Title", { fallback: "Long-Term Relevance" }),
-      description: t("feature4Description", {
-        fallback:
-          "Designs that remain functional and liveable for decades — not just seasons.",
-      }),
     },
   ] as const;
 
@@ -70,12 +53,20 @@ export const HomeWhyDomera = () => {
             <h2 className={styles.why__title}>
               {t("title", { fallback: "Why Doméra" })}
             </h2>
-            <p className={styles.why__description}>
-              {t("description", {
-                fallback:
-                  "Because a home should be designed around how you actually live — not adapted after the fact.",
-              })}
-            </p>
+            <div className={styles.why__description}>
+              <p>
+                {t("descriptionLine1", {
+                  fallback: "Doméra is built on restraint and precision.",
+                })}
+              </p>
+              <p>
+                {t("descriptionLine2", {
+                  fallback:
+                    "We focus on planning that works — visually, structurally, and practically.",
+                })}
+              </p>
+              <p>{t("descriptionLine3", { fallback: "Our principles:" })}</p>
+            </div>
           </div>
         </div>
 
@@ -85,13 +76,17 @@ export const HomeWhyDomera = () => {
               <span className={styles.why__featureBadge}>{index + 1}</span>
               <div className={styles.why__featureText}>
                 <p className={styles.why__featureTitle}>{feature.title}</p>
-                <p className={styles.why__featureDescription}>
-                  {feature.description}
-                </p>
               </div>
             </div>
           ))}
         </div>
+
+        <p className={styles.why__footnote}>
+          {t("footnote", {
+            fallback:
+              "Every plan is created to be built, lived in, and refined when needed.",
+          })}
+        </p>
       </div>
     </section>
   );

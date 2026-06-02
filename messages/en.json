@@ -1,19 +1,20 @@
 {
   "homeHero": {
-    "headline": "Residential planning shaped by structure, clarity.",
-    "subtitle": "Doméra works with homeowners and developers to create plans that reflect your space, your rhythm, and your long-term goals.",
+    "headline": "Doméra: Design, Defined",
+    "subtitle1": "Residential planning shaped by structure, clarity, and real-world application.",
+    "subtitle2": "House, garage, and outdoor layouts designed to function, adapt, and remain relevant over time.",
     "ctaPrimary": "→ Begin Your Project",
     "ctaSecondary": "→ Explore Studio"
   },
   "homeHowItWorks": {
-    "step1Title": "Submit Your Brief",
-    "step1Description": "Tell us about your site, your budget, your timeline, and your vision. We start where you are.",
-    "step2Title": "Design Consultation",
-    "step2Description": "Our planning team reviews your requirements and schedules a direct consultation to align on direction.",
-    "step3Title": "Plan Development",
-    "step3Description": "We develop your full design package — floor plans, elevations, sections, and specifications.",
-    "step4Title": "Delivery & Support",
-    "step4Description": "Receive your complete plan set, ready for permits and construction. We remain available for questions.",
+    "step1Title": "Define Your Requirements",
+    "step1Description": "Outline your needs, preferences, and key project details.",
+    "step2Title": "Select a <br/>Style Direction",
+    "step2Description": "Choose an approach that fits your space and vision.",
+    "step3Title": "Receive a Structured Proposal",
+    "step3Description": "Get a clear plan with scope, cost, and next steps.",
+    "step4Title": "Prepare <br/>for Construction",
+    "step4Description": "Move forward with a layout ready for real-world use.",
     "label": "HOW IT WORKS",
     "title": "How It Works"
   },
@@ -48,7 +49,8 @@
   "homeStructureIdea": {
     "label": "STRUCTURE YOUR IDEA",
     "title": "Structure Your Idea",
-    "description": "Every project starts with a conversation. Share what you're planning and we'll take it from there."
+    "description1": "Have a plot, an idea, or an early concept?",
+    "description2": "Share your details and begin exploring the right plan for your space."
   },
   "homeStyleLibrary": {
     "slide1Title": "Natural Forms",
@@ -108,26 +110,26 @@
   },
   "homeWhatWeCreate": {
     "homePlansTitle": "Home Plans",
-    "homePlansDescription": "From compact single-story designs to multi-level family homes — every plan is drawn with functional precision.",
+    "homePlansDescription": "House layouts organized around everyday use, spatial clarity, and long-term comfort.",
     "garageTitle": "Garage Structures",
-    "garageDescription": "Attached, detached, or integrated — Doméra delivers garage plans that complement and serve the main residence.",
+    "garageDescription": "Functional layouts designed for access, storage, and integration with the main building.",
     "outdoorTitle": "Outdoor Spaces",
-    "outdoorDescription": "Gazebos, pergolas, garden studios — thoughtfully designed structures that extend your living space outward.",
+    "outdoorDescription": "Gazebos and exterior structures that extend usable space while maintaining balance with the overall design.",
     "label": "WHAT WE CREATE",
-    "title": "What We Create"
+    "title": "What We Create",
+    "subtitle": "Our work is focused on three core areas, each developed with a clear purpose and defined scope."
   },
   "homeWhyDomera": {
     "feature1Title": "Clear Spatial Logic",
-    "feature1Description": "Every room, every transition — designed with intentional spatial flow.",
     "feature2Title": "Real-World Usability",
-    "feature2Description": "Plans shaped by real feedback, real budgets, and real construction conditions.",
     "feature3Title": "Adaptable Layouts",
-    "feature3Description": "Flexible core structures that let you expand, modify, or repurpose.",
     "feature4Title": "Long-Term Relevance",
-    "feature4Description": "Designs that remain functional and liveable for decades — not just seasons.",
     "label": "WHY DOMÉRA",
     "title": "Why Doméra",
-    "description": "Because a home should be designed around how you actually live — not adapted after the fact."
+    "descriptionLine1": "Doméra is built on restraint and precision.",
+    "descriptionLine2": "We focus on planning that works — visually, structurally, and practically.",
+    "descriptionLine3": "Our principles:",
+    "footnote": "Every plan is created to be built, lived in, and refined when needed."
   },
   "forgotPasswordPage": {
     "heroTitle": "Forgot Password?",
@@ -475,10 +477,12 @@
     "decreaseGuests": "Decrease guests"
   },
   "forms": {
+    "close": "Close",
     "brief": {
-      "successTitle": "Thank you!",
-      "successMessage": "Your brief has been submitted. We respond within 2 business days.",
-      "again": "→ Submit another brief",
+      "successTitle": "Thank you for contacting Doméra!",
+      "successLine1": "Your request has been successfully received.",
+      "successLine2": "Our team will review the details and reach out to you shortly to discuss the next steps of your project.",
+      "successLine3": "We look forward to helping you move from planning to realization.",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email Address",

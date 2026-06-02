@@ -12,6 +12,7 @@ import {
   briefFormSchema,
 } from "@/features/forms/model/schemas";
 
+import { FormPopup } from "../FormPopup/FormPopup";
 import styles from "./BriefForm.module.scss";
 
 export const BriefForm = () => {
@@ -49,37 +50,56 @@ export const BriefForm = () => {
     }
   };
 
-  if (isSuccess) {
-    return (
-      <div className={styles.brief}>
-        <div className={styles.brief__success}>
-          <h3 className={styles.brief__successTitle}>
-            {t("brief.successTitle", { fallback: "Thank you!" })}
-          </h3>
-          <p className={styles.brief__successText}>
-            {t("brief.successMessage", {
-              fallback:
-                "Your brief has been submitted. We respond within 2 business days.",
+  return (
+    <>
+      <FormPopup
+        isOpen={isSuccess}
+        onClose={() => setIsSuccess(false)}
+        ariaLabelledBy="brief-success-title"
+        panelClassName={styles.brief__popup}
+      >
+        <button
+          type="button"
+          className={styles.brief__popupClose}
+          onClick={() => setIsSuccess(false)}
+          aria-label={t("close", { fallback: "Close" })}
+        >
+          &times;
+        </button>
+        <h3 id="brief-success-title" className={styles.brief__popupTitle}>
+          {t("brief.successTitle", {
+            fallback: "Thank you for contacting Doméra!",
+          })}
+        </h3>
+        <div className={styles.brief__popupText}>
+          <p>
+            {t("brief.successLine1", {
+              fallback: "Your request has been successfully received.",
             })}
           </p>
-          <button
-            type="button"
-            className={styles.brief__again}
-            onClick={() => setIsSuccess(false)}
-          >
-            {t("brief.again", { fallback: "→ Submit another brief" })}
-          </button>
+          <p>
+            {t("brief.successLine2", {
+              fallback:
+                "Our team will review the details and reach out to you shortly to discuss the next steps of your project.",
+            })}
+          </p>
+          <p>
+            {t("brief.successLine3", {
+              fallback:
+                "We look forward to helping you move from planning to realization.",
+            })}
+          </p>
         </div>
-      </div>
-    );
-  }
+        <button
+          type="button"
+          className={styles.brief__popupBtn}
+          onClick={() => setIsSuccess(false)}
+        >
+          {t("close", { fallback: "Close" })}
+        </button>
+      </FormPopup>
 
-  return (
-    <form
-      className={styles.brief}
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
-    >
+      <form className={styles.brief} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div
         className={`${styles.brief__field} ${
           errors.firstName ? styles.brief__fieldError : ""
@@ -223,6 +243,7 @@ export const BriefForm = () => {
           fallback: "We respond within 2 business days.",
         })}
       </p>
-    </form>
+      </form>
+    </>
   );
 };

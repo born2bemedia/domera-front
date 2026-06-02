@@ -31,9 +31,8 @@ $muted: #a89f95;
     display: flex;
     flex: 1 1 0;
     flex-direction: column;
-    gap: 70px;
+    gap: 24px;
     min-width: 0;
-    max-width: 720px;
     padding: 0 80px;
   }
 
@@ -68,6 +67,8 @@ $muted: #a89f95;
   }
 
   &__description {
+    display: flex;
+    flex-direction: column;
     font-size: 16px;
     line-height: 26px;
     color: $muted;
@@ -79,7 +80,6 @@ $muted: #a89f95;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 40px;
     row-gap: 32px;
-    width: 600px;
     max-width: 100%;
   }
 
@@ -109,15 +109,17 @@ $muted: #a89f95;
   }
 
   &__featureTitle {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 22px;
+    font-family: $gambetta;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -1px;
     color: $ink-50;
   }
 
-  &__featureDescription {
-    font-size: 14px;
-    line-height: 22px;
+  &__footnote {
+    font-size: 16px;
+    line-height: 26px;
     color: $muted;
   }
 
@@ -129,8 +131,13 @@ $muted: #a89f95;
     }
 
     &__content {
-      gap: 48px;
+      gap: 24px;
       padding: 0 48px;
+    }
+
+    &__featureTitle {
+      font-size: 28px;
+      line-height: 36px;
     }
   }
 
@@ -145,14 +152,20 @@ $muted: #a89f95;
 
     &__content {
       max-width: 100%;
-      gap: 40px;
+      gap: 32px;
       padding: 60px 20px;
     }
 
     &__features {
       width: 100%;
       column-gap: 20px;
-      row-gap: 32px;
+      row-gap: 28px;
+    }
+
+    &__featureTitle {
+      font-size: 24px;
+      line-height: 30px;
+      letter-spacing: -0.5px;
     }
   }
 }

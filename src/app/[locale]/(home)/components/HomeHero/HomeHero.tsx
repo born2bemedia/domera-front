@@ -31,13 +31,17 @@ export const HomeHero = () => {
             <div className={styles.hero__headlineGroup}>
               <h1 className={styles.hero__headline}>
                 {t("headline", {
-                  fallback: "Residential planning shaped by structure, clarity.",
+                  fallback: "Doméra: Design, Defined",
                 })}
               </h1>
               <p className={styles.hero__subtitle}>
-                {t("subtitle", {
+                {t("subtitle1", {
                   fallback:
-                    "Doméra works with homeowners and developers to create plans that reflect your space, your rhythm, and your long-term goals.",
+                    "Residential planning shaped by structure, clarity, and real-world application.",
+                })}<br/>
+                {t("subtitle2", {
+                  fallback:
+                    "House, garage, and outdoor layouts designed to function, adapt, and remain relevant over time.",
                 })}
               </p>
             </div>

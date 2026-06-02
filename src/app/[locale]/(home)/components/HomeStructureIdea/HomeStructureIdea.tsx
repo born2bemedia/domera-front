@@ -36,9 +36,13 @@ export const HomeStructureIdea = async () => {
                 </h2>
               </div>
               <p className={styles.structure__description}>
-                {t("description", {
+                {t("description1", {
                   fallback:
-                    "Every project starts with a conversation. Share what you're planning and we'll take it from there.",
+                    "Have a plot, an idea, or an early concept?",
+                })}<br/>
+                {t("description2", {
+                  fallback:
+                    "Share your details and begin exploring the right plan for your space.",
                 })}
               </p>
             </div>

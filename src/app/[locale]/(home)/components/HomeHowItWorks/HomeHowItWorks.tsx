@@ -18,37 +18,37 @@ export const HomeHowItWorks = () => {
     {
       key: "brief",
       number: "01",
-      title: t("step1Title", { fallback: "Submit Your Brief" }),
+      title: t("step1Title", { fallback: "Define Your Requirements" }),
       description: t("step1Description", {
         fallback:
-          "Tell us about your site, your budget, your timeline, and your vision. We start where you are.",
+          "Outline your needs, preferences, and key project details.",
       }),
     },
     {
       key: "consultation",
       number: "02",
-      title: t("step2Title", { fallback: "Design Consultation" }),
+      title: t("step2Title", { fallback: "Select a <br/>Style Direction" }),
       description: t("step2Description", {
         fallback:
-          "Our planning team reviews your requirements and schedules a direct consultation to align on direction.",
+          "Choose an approach that fits your space and vision.",
       }),
     },
     {
       key: "development",
       number: "03",
-      title: t("step3Title", { fallback: "Plan Development" }),
+      title: t("step3Title", { fallback: "Receive a Structured Proposal" }),
       description: t("step3Description", {
         fallback:
-          "We develop your full design package — floor plans, elevations, sections, and specifications.",
+          "Get a clear plan with scope, cost, and next steps.",
       }),
     },
     {
       key: "delivery",
       number: "04",
-      title: t("step4Title", { fallback: "Delivery & Support" }),
+      title: t("step4Title", { fallback: "Prepare <br/>for Construction" }),
       description: t("step4Description", {
         fallback:
-          "Receive your complete plan set, ready for permits and construction. We remain available for questions.",
+          "Move forward with a layout ready for real-world use.",
       }),
     },
   ] as const;
@@ -71,7 +71,7 @@ export const HomeHowItWorks = () => {
               <div key={step.key} className={styles.how__step}>
                 <p className={styles.how__stepNumber}>{step.number}</p>
                 <div className={styles.how__stepContent}>
-                  <h3 className={styles.how__stepTitle}>{step.title}</h3>
+                  <h3 className={styles.how__stepTitle} dangerouslySetInnerHTML={{ __html: step.title }} />
                   <p className={styles.how__stepDescription}>
                     {step.description}
                   </p>
