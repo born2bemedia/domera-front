@@ -104,6 +104,28 @@ $desc: #5a534b;
     padding: 40px;
   }
 
+  &__contentLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 560px;
+    animation: styleSlideFade 0.6s ease;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    font-size: 26px;
+    line-height: 1;
+  }
+
   &__slideTitle {
     font-family: $gambetta;
     font-weight: 400;
@@ -111,7 +133,13 @@ $desc: #5a534b;
     line-height: 88px;
     letter-spacing: -2.5px;
     color: $ink-light;
-    animation: styleSlideFade 0.6s ease;
+  }
+
+  &__slideDesc {
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(251, 250, 249, 0.85);
+    max-width: 440px;
   }
 
   &__options {

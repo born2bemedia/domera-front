@@ -7,16 +7,18 @@ import { useTranslations } from "next-intl";
 
 import styles from "./HomeStyleLibrary.module.scss";
 
-type StyleSlide = {
-  key: string;
-  title: string;
-  image: string;
-};
-
 type StyleOption = {
   key: string;
   title: string;
   subtitle: string;
+};
+
+type StyleSlide = {
+  key: string;
+  title: string;
+  image: string;
+  description: string;
+  options: readonly StyleOption[];
 };
 
 export const HomeStyleLibrary = () => {
@@ -28,57 +30,196 @@ export const HomeStyleLibrary = () => {
       key: "natural-forms",
       title: t("slide1Title", { fallback: "Natural Forms" }),
       image: "/images/home/domera/style-1-natural-forms.png",
+      description: t("slide1Description", {
+        fallback:
+          "Shaped by landscape and proportion. Open, grounded layouts connected to surroundings.",
+      }),
+      options: [
+        {
+          key: "seaside",
+          title: t("seasideTitle", { fallback: "Seaside" }),
+          subtitle: t("seasideSubtitle", {
+            fallback: "Light, open, indoor–outdoor flow",
+          }),
+        },
+        {
+          key: "timber",
+          title: t("timberTitle", { fallback: "Timber" }),
+          subtitle: t("timberSubtitle", {
+            fallback: "Material-driven, warm, structured",
+          }),
+        },
+        {
+          key: "tuscan",
+          title: t("tuscanTitle", { fallback: "Tuscan" }),
+          subtitle: t("tuscanSubtitle", {
+            fallback: "Balanced, symmetrical, grounded",
+          }),
+        },
+        {
+          key: "plains",
+          title: t("plainsTitle", { fallback: "Plains" }),
+          subtitle: t("plainsSubtitle", {
+            fallback: "Wide, horizontal, unobstructed",
+          }),
+        },
+        {
+          key: "rural",
+          title: t("ruralTitle", { fallback: "Rural" }),
+          subtitle: t("ruralSubtitle", {
+            fallback: "Simple, calm, countryside-focused",
+          }),
+        },
+      ],
     },
     {
       key: "modern-lines",
       title: t("slide2Title", { fallback: "Modern Lines" }),
       image: "/images/home/domera/style-2-modern-lines.png",
+      description: t("slide2Description", {
+        fallback:
+          "Clean geometry and efficient planning. Clear, flexible, and modern layouts.",
+      }),
+      options: [
+        {
+          key: "contemporary",
+          title: t("contemporaryTitle", { fallback: "Contemporary" }),
+          subtitle: t("contemporarySubtitle", {
+            fallback: "Balanced modern clarity",
+          }),
+        },
+        {
+          key: "minimal",
+          title: t("minimalTitle", { fallback: "Minimal" }),
+          subtitle: t("minimalSubtitle", {
+            fallback: "Reduced, purposeful simplicity",
+          }),
+        },
+        {
+          key: "downtown",
+          title: t("downtownTitle", { fallback: "Downtown" }),
+          subtitle: t("downtownSubtitle", {
+            fallback: "Compact, urban efficiency",
+          }),
+        },
+        {
+          key: "loft",
+          title: t("loftTitle", { fallback: "Loft" }),
+          subtitle: t("loftSubtitle", {
+            fallback: "Open, flexible interiors",
+          }),
+        },
+      ],
     },
     {
       key: "historic-character",
       title: t("slide3Title", { fallback: "Historic Character" }),
       image: "/images/home/domera/style-3-historic-character.png",
+      description: t("slide3Description", {
+        fallback:
+          "Rooted in tradition and structure. Classic proportions with practical use.",
+      }),
+      options: [
+        {
+          key: "classic",
+          title: t("classicTitle", { fallback: "Classic" }),
+          subtitle: t("classicSubtitle", {
+            fallback: "Timeless, symmetrical balance",
+          }),
+        },
+        {
+          key: "federal",
+          title: t("federalTitle", { fallback: "Federal" }),
+          subtitle: t("federalSubtitle", {
+            fallback: "Formal, structured alignment",
+          }),
+        },
+        {
+          key: "victorian",
+          title: t("victorianTitle", { fallback: "Victorian" }),
+          subtitle: t("victorianSubtitle", {
+            fallback: "Layered, expressive detail",
+          }),
+        },
+        {
+          key: "medieval",
+          title: t("medievalTitle", { fallback: "Medieval" }),
+          subtitle: t("medievalSubtitle", {
+            fallback: "Solid, enclosed, durable",
+          }),
+        },
+      ],
     },
     {
       key: "country-living",
       title: t("slide4Title", { fallback: "Country Living" }),
       image: "/images/home/domera/style-4-country-living.png",
+      description: t("slide4Description", {
+        fallback:
+          "Comfort-driven and practical. Warm, usable layouts for everyday living.",
+      }),
+      options: [
+        {
+          key: "handcrafted",
+          title: t("handcraftedTitle", { fallback: "Handcrafted" }),
+          subtitle: t("handcraftedSubtitle", {
+            fallback: "Detailed, human-scaled",
+          }),
+        },
+        {
+          key: "farmhouse",
+          title: t("farmhouseTitle", { fallback: "Farmhouse" }),
+          subtitle: t("farmhouseSubtitle", {
+            fallback: "Open, functional core",
+          }),
+        },
+        {
+          key: "cabin",
+          title: t("cabinTitle", { fallback: "Cabin" }),
+          subtitle: t("cabinSubtitle", {
+            fallback: "Compact, efficient retreat",
+          }),
+        },
+        {
+          key: "southern",
+          title: t("southernTitle", { fallback: "Southern" }),
+          subtitle: t("southernSubtitle", {
+            fallback: "Spacious, relaxed flow",
+          }),
+        },
+      ],
     },
     {
       key: "european-roots",
       title: t("slide5Title", { fallback: "European Roots" }),
       image: "/images/home/domera/style-5-european-roots.png",
-    },
-  ] as const;
-
-  const OPTIONS: readonly StyleOption[] = [
-    {
-      key: "handcrafted",
-      title: t("optionHandcraftedTitle", { fallback: "Handcrafted" }),
-      subtitle: t("optionHandcraftedSubtitle", {
-        fallback: "Detailed, human-scaled",
+      description: t("slide5Description", {
+        fallback:
+          "Regional influence with structural clarity. Adapted for modern use.",
       }),
-    },
-    {
-      key: "farmhouse",
-      title: t("optionFarmhouseTitle", { fallback: "Farmhouse" }),
-      subtitle: t("optionFarmhouseSubtitle", {
-        fallback: "Open, functional core",
-      }),
-    },
-    {
-      key: "cabin",
-      title: t("optionCabinTitle", { fallback: "Cabin" }),
-      subtitle: t("optionCabinSubtitle", {
-        fallback: "Compact, efficient retreat",
-      }),
-    },
-    {
-      key: "southern",
-      title: t("optionSouthernTitle", { fallback: "Southern" }),
-      subtitle: t("optionSouthernSubtitle", {
-        fallback: "Spacious, relaxed flow",
-      }),
+      options: [
+        {
+          key: "alpine",
+          title: t("alpineTitle", { fallback: "Alpine" }),
+          subtitle: t("alpineSubtitle", {
+            fallback: "Compact, climate-efficient",
+          }),
+        },
+        {
+          key: "chalet",
+          title: t("chaletTitle", { fallback: "Chalet" }),
+          subtitle: t("chaletSubtitle", {
+            fallback: "Warm, sheltered comfort",
+          }),
+        },
+        {
+          key: "renaissance",
+          title: t("renaissanceTitle", { fallback: "Renaissance" }),
+          subtitle: t("renaissanceSubtitle", {
+            fallback: "Balanced, proportional order",
+          }),
+        },
+      ],
     },
   ] as const;
 
@@ -102,7 +243,7 @@ export const HomeStyleLibrary = () => {
               <p className={styles.style__subtitle}>
                 {t("subtitle", {
                   fallback:
-                    "Five distinct aesthetic directions — each one a complete visual language for your home.",
+                    "Distinct approaches to organizing space — structured, consistent, and adaptable across different environments.",
                 })}
               </p>
             </div>
@@ -145,12 +286,18 @@ export const HomeStyleLibrary = () => {
             </div>
 
             <div className={styles.style__content}>
-              <h3 key={activeSlide.key} className={styles.style__slideTitle}>
-                {activeSlide.title}
-              </h3>
+              <div key={activeSlide.key} className={styles.style__contentLeft}>
+                
+                <h3 className={styles.style__slideTitle}>
+                  {activeSlide.title}
+                </h3>
+                <p className={styles.style__slideDesc}>
+                  {activeSlide.description}
+                </p>
+              </div>
 
               <div className={styles.style__options}>
-                {OPTIONS.map((option) => (
+                {activeSlide.options.map((option) => (
                   <div key={option.key} className={styles.style__option}>
                     <p className={styles.style__optionTitle}>{option.title}</p>
                     <p className={styles.style__optionSubtitle}>
