@@ -1,0 +1,158 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+$cabinet: var(--font-cabinet-grotesk), sans-serif;
+$gambetta: var(--font-gambetta), serif;
+
+$bg: #121110;
+$gold: #bba880;
+$badge-bg: #463c26;
+$ink-50: #faf9f8;
+$muted: #a89f95;
+
+.why {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: $bg;
+  font-family: $cabinet;
+
+  &__image {
+    position: relative;
+    flex-shrink: 0;
+    width: 560px;
+    height: 580px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 70px;
+    min-width: 0;
+    max-width: 720px;
+    padding: 0 80px;
+  }
+
+  /* ---------- Head ---------- */
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    color: $gold;
+  }
+
+  &__textGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__title {
+    font-family: $gambetta;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -1px;
+    color: $ink-50;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 26px;
+    color: $muted;
+  }
+
+  /* ---------- Features ---------- */
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    row-gap: 32px;
+    width: 600px;
+    max-width: 100%;
+  }
+
+  &__feature {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__featureBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: $badge-bg;
+    color: $gold;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  &__featureText {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__featureTitle {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: $ink-50;
+  }
+
+  &__featureDescription {
+    font-size: 14px;
+    line-height: 22px;
+    color: $muted;
+  }
+
+  /* ---------- Responsive ---------- */
+  @include tablet {
+    &__image {
+      width: 42%;
+      height: 560px;
+    }
+
+    &__content {
+      gap: 48px;
+      padding: 0 48px;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+
+    &__image {
+      width: 100%;
+      height: 360px;
+    }
+
+    &__content {
+      max-width: 100%;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+
+    &__features {
+      width: 100%;
+      column-gap: 20px;
+      row-gap: 32px;
+    }
+  }
+}

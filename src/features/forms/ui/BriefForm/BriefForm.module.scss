@@ -1,0 +1,151 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+@use "@/shared/lib/styles/controls.scss" as *;
+
+$cabinet: var(--font-cabinet-grotesk), sans-serif;
+$gambetta: var(--font-gambetta), serif;
+
+$ink-900: #121110;
+$ink-50: #faf9f8;
+$muted: #7a7067;
+$border: #cec8c0;
+$rule: #e8e4de;
+$error: #c0382e;
+$error-surface: #fdf3f2;
+
+.brief {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  width: 536px;
+  max-width: 100%;
+  padding: 24px;
+  border: 1px solid $rule;
+  border-radius: 4px;
+  background: #ffffff;
+  font-family: $cabinet;
+
+  &__field {
+    @include domera-field;
+  }
+
+  &__fieldError {
+    border-color: $error;
+    background: $error-surface;
+
+    &:focus-within {
+      border-color: $error;
+    }
+  }
+
+  &__fieldFull {
+    grid-column: 1 / span 2;
+  }
+
+  &__label {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    color: $muted;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 2px 0 5px;
+    border: 0;
+    border-bottom: 1px solid $rule;
+    background: transparent;
+    font-family: $cabinet;
+    font-size: 14px;
+    line-height: 22px;
+    color: $ink-900;
+    outline: none;
+
+    &::placeholder {
+      color: $border;
+    }
+
+    &:focus {
+      border-bottom-color: $ink-900;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 44px;
+  }
+
+  &__error {
+    font-size: 11px;
+    line-height: 14px;
+    color: $error;
+  }
+
+  &__submitError {
+    grid-column: 1 / span 2;
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    color: $error;
+    text-align: center;
+  }
+
+  &__submit {
+    @include domera-btn-primary;
+    grid-column: 1 / span 2;
+    width: 100%;
+  }
+
+  &__caption {
+    grid-column: 1 / span 2;
+    margin: 0;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    color: $muted;
+    text-align: center;
+  }
+
+  /* ---------- Success ---------- */
+  &__success {
+    grid-column: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 16px 0;
+  }
+
+  &__successTitle {
+    font-family: $gambetta;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: $ink-900;
+  }
+
+  &__successText {
+    font-size: 14px;
+    line-height: 22px;
+    color: $muted;
+  }
+
+  &__again {
+    @include domera-btn-primary;
+    align-self: flex-start;
+  }
+
+  @include mobile {
+    width: 100%;
+    grid-template-columns: 1fr;
+
+    &__fieldFull,
+    &__submit,
+    &__caption,
+    &__submitError,
+    &__success {
+      grid-column: 1 / span 1;
+    }
+  }
+}

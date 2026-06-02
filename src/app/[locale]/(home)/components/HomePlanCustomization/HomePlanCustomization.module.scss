@@ -1,0 +1,237 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+@use "@/shared/lib/styles/controls.scss" as *;
+
+$cabinet: var(--font-cabinet-grotesk), sans-serif;
+$gambetta: var(--font-gambetta), serif;
+
+$bg: #121110;
+$ink-900: #121110;
+$ink-50: #faf9f8;
+$ink-light: #fbfaf9;
+$ink-100: #f6f5f4;
+$gold: #bba880;
+$accent-700: #463c26;
+$muted: #a89f95;
+
+.plan {
+  background: $bg;
+  font-family: $cabinet;
+  padding: 80px 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+  }
+
+  /* ---------- Head ---------- */
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    max-width: 512px;
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    color: $ink-100;
+  }
+
+  &__titleBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__titleRow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  &__accent {
+    flex-shrink: 0;
+    width: 3px;
+    height: 80px;
+    background: $gold;
+  }
+
+  &__title {
+    font-family: $gambetta;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -1.5px;
+    color: $ink-light;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 26px;
+    color: $ink-100;
+  }
+
+  /* ---------- Expanding items ---------- */
+  &__items {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    height: 384px;
+    flex: 0 0 200px;
+    min-width: 0;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.5s ease;
+
+    &.active {
+      flex: 1 1 0;
+      cursor: default;
+    }
+  }
+
+  &__itemImage {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__itemDetails {
+    display: flex;
+    flex: 0 0 0;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: flex 0.5s ease, opacity 0.4s ease, padding 0.5s ease;
+
+    .active & {
+      flex: 1 1 0;
+      padding: 24px;
+      border-color: $accent-700;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: $accent-700;
+    color: $gold;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  &__detailText {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__detailTitle {
+    font-family: $gambetta;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.25px;
+    color: $ink-50;
+  }
+
+  &__featureList {
+    list-style: disc;
+    padding-left: 21px;
+    color: $muted;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &__cta {
+    @include domera-btn-secondary;
+    align-self: flex-start;
+  }
+
+  /* ---------- Responsive ---------- */
+  @include mobile {
+    padding: 56px 0;
+
+    &__title {
+      font-size: 36px;
+      line-height: 42px;
+      letter-spacing: -1px;
+    }
+
+    &__accent {
+      height: 64px;
+    }
+
+    &__items {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__item {
+      flex-direction: column;
+      height: auto;
+      overflow: visible;
+
+      &,
+      &.active {
+        flex: 0 1 auto;
+      }
+    }
+
+    &__itemImage {
+      flex: none;
+      width: 100%;
+      height: 200px;
+    }
+
+    &__item.active &__itemImage {
+      height: 360px;
+    }
+
+    &__itemDetails {
+      display: none;
+    }
+
+    &__item.active &__itemDetails {
+      display: flex;
+      flex: none;
+      width: 100%;
+      margin-top: 10px;
+      padding: 24px;
+      border-color: $accent-700;
+      opacity: 1;
+      pointer-events: auto;
+      overflow: visible;
+    }
+  }
+}

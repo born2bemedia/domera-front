@@ -1,0 +1,273 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+@use "@/shared/lib/styles/controls.scss" as *;
+
+$cabinet: var(--font-cabinet-grotesk), sans-serif;
+$gambetta: var(--font-gambetta), serif;
+
+$ink-900: #121110;
+$ink-50: #faf9f8;
+$ink-light: #fbfaf9;
+$gold: #bba880;
+$topbar-bg: #161514;
+$topbar-text: #a89f95;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  font-family: $cabinet;
+
+  &.scrolled {
+    position: fixed;
+
+    .header__topbar {
+      display: none;
+    }
+
+    .header__main {
+      background: $topbar-bg;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  &.menuOpen {
+    position: fixed;
+  }
+
+  /* ---------- Topbar ---------- */
+  &__topbar {
+    background: $topbar-bg;
+  }
+
+  &__topbarInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0;
+    color: $topbar-text;
+    font-size: 12px;
+  }
+
+  &__topbarEmail {
+    font-weight: 500;
+    letter-spacing: 0.75px;
+    line-height: 16px;
+    color: $topbar-text;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $ink-50;
+    }
+  }
+
+  &__topbarSocials {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    line-height: 18px;
+  }
+
+  &__topbarSocial {
+    display: inline-flex;
+    align-items: center;
+
+    a {
+      color: $topbar-text;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $ink-50;
+      }
+    }
+  }
+
+  &__topbarDot {
+    padding: 0 8px;
+  }
+
+  /* ---------- Main bar ---------- */
+  &__main {
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  &__mainInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__logoMark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    background: $gold;
+    color: $ink-900;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  &__logoText {
+    font-size: 16px;
+    line-height: 26px;
+    color: $ink-50;
+  }
+
+  /* ---------- Desktop nav ---------- */
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__navItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 14px 12px;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    color: $ink-light;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &.active {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  /* ---------- Actions ---------- */
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__btnGhost {
+    @include domera-btn-secondary;
+  }
+
+  &__btnPrimary {
+    @include domera-btn-primary;
+  }
+
+  /* ---------- Mobile toggle ---------- */
+  &__menuToggle {
+    display: none;
+    background: transparent;
+    color: $ink-light;
+    font-family: $cabinet;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    cursor: pointer;
+    padding: 6px 0;
+  }
+
+  /* ---------- Mobile menu ---------- */
+  &__mobileMenu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    flex-direction: column;
+    gap: 32px;
+    padding: 120px 24px 48px;
+    background: $topbar-bg;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+
+    &.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  }
+
+  &__mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__mobileNavItem {
+    font-family: $gambetta;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: $ink-50;
+
+    &.active {
+      color: $gold;
+    }
+  }
+
+  &__mobileActions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .header__btnGhost,
+    .header__btnPrimary {
+      width: 100%;
+      padding: 16px 12px;
+    }
+  }
+
+  &__mobileSocials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    line-height: 22px;
+    color: $ink-light;
+
+    a {
+      color: $ink-light;
+    }
+  }
+
+  @include mobile {
+    &__nav,
+    &__actions {
+      display: none;
+    }
+
+    &__menuToggle {
+      display: inline-flex;
+    }
+
+    &__mobileMenu {
+      display: flex;
+    }
+  }
+}

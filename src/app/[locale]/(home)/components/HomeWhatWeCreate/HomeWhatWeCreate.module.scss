@@ -1,0 +1,145 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+$cabinet: var(--font-cabinet-grotesk), sans-serif;
+$gambetta: var(--font-gambetta), serif;
+
+$ink-900: #121110;
+$ink-600: #605b56;
+$gold: #bba880;
+$label: #5e5033;
+
+.wwc {
+  background: #faf9f8;
+  font-family: $cabinet;
+  padding: 80px 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* ---------- Head ---------- */
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    max-width: 712px;
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.75px;
+    color: $label;
+  }
+
+  &__titleRow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  &__accent {
+    flex-shrink: 0;
+    width: 3px;
+    height: 50px;
+    background: $gold;
+  }
+
+  &__title {
+    font-family: $gambetta;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -1.5px;
+    color: $ink-900;
+  }
+
+  /* ---------- Cards ---------- */
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 24px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &--garage {
+      padding-top: 120px;
+    }
+
+    &--outdoor {
+      padding-top: 40px;
+    }
+  }
+
+  &__cardImage {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__cardTitle {
+    font-family: $gambetta;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.25px;
+    color: $ink-900;
+  }
+
+  &__cardDescription {
+    font-size: 14px;
+    line-height: 22px;
+    color: $ink-600;
+  }
+
+  @include tablet {
+    &__cardImage {
+      height: 380px;
+    }
+  }
+
+  @include mobile {
+    padding: 64px 0;
+
+    &__title {
+      font-size: 36px;
+      line-height: 42px;
+      letter-spacing: -1px;
+    }
+
+    &__cards {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    &__card {
+      &--garage,
+      &--outdoor {
+        padding-top: 0;
+      }
+    }
+
+    &__cardImage {
+      height: 360px;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+@use "@/shared/lib/styles/controls.scss" as *;
+
+$cabinet: var(--font-cabinet-grotesk), sans-serif;
+$gambetta: var(--font-gambetta), serif;
+
+$ink-900: #121110;
+$ink-50: #faf9f8;
+$ink-100: #f6f5f4;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 710px;
+  padding: 140px 0 40px;
+  overflow: hidden;
+  font-family: $cabinet;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__bgImage {
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 1000px;
+  }
+
+  &__headlineGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__headline {
+    font-family: $gambetta;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -2px;
+    color: $ink-50;
+    max-width: 1000px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 28px;
+    color: $ink-100;
+    max-width: 520px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__btnPrimary {
+    @include domera-btn-primary;
+  }
+
+  &__btnSecondary {
+    @include domera-btn-secondary;
+  }
+
+  @include tablet {
+    &__headline {
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -1.5px;
+    }
+  }
+
+  @include mobile {
+    min-height: 710px;
+    padding: 150px 0 32px;
+
+    &__content {
+      gap: 28px;
+    }
+
+    &__headline {
+      font-size: 40px;
+      line-height: 46px;
+      letter-spacing: -1px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      line-height: 26px;
+      max-width: 100%;
+    }
+
+    &__actions {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    &__btnPrimary,
+    &__btnSecondary {
+      width: 100%;
+      padding: 16px;
+    }
+  }
+}

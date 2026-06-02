@@ -1,0 +1,129 @@
+// Doméra shared control styles — buttons & inputs.
+// Mirrors the Figma "BUTTON STATES" (3:131) and "inputs states" (3:255) components.
+
+$domera-ink-900: #121110;
+$domera-ink-50: #faf9f8;
+$domera-ink-100: #fbfaf9;
+$domera-primary-hover: #463c26;
+$domera-primary-active: #5e5033;
+$domera-focus-ring: #7a6a45;
+$domera-muted: #7a7067;
+$domera-border: #cec8c0;
+$domera-hover-surface: #faf9f8;
+$domera-error: #c0382e;
+$domera-error-surface: #fdf3f2;
+$domera-input-rule: #e8e4de;
+
+@mixin domera-btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding: 14px 12px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-family: var(--font-cabinet-grotesk), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+@mixin domera-btn-primary {
+  @include domera-btn-base;
+  background: $domera-ink-900;
+  color: $domera-ink-50;
+
+  &:hover {
+    background: $domera-primary-hover;
+  }
+
+  &:active {
+    background: $domera-primary-active;
+  }
+
+  &:focus-visible {
+    border-color: $domera-focus-ring;
+    outline: none;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background: $domera-border;
+    color: $domera-muted;
+    cursor: not-allowed;
+  }
+}
+
+@mixin domera-btn-secondary {
+  @include domera-btn-base;
+  background: #ffffff;
+  border-color: $domera-ink-900;
+  color: $domera-ink-900;
+
+  &:hover {
+    background: $domera-hover-surface;
+  }
+
+  &:active {
+    background: $domera-border;
+  }
+
+  &:focus-visible {
+    border-color: $domera-focus-ring;
+    outline: none;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    border-color: $domera-border;
+    color: $domera-border;
+    cursor: not-allowed;
+  }
+}
+
+@mixin domera-btn-ghost {
+  @include domera-btn-base;
+  background: transparent;
+  color: $domera-ink-900;
+
+  &:hover {
+    background: $domera-hover-surface;
+  }
+
+  &:active {
+    background: $domera-border;
+  }
+
+  &:focus-visible {
+    background: $domera-hover-surface;
+    border-color: $domera-focus-ring;
+    outline: none;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    color: $domera-border;
+    cursor: not-allowed;
+  }
+}
+
+// Input "field box" container — label + value rule live inside.
+@mixin domera-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid $domera-border;
+  border-radius: 2px;
+  background: #ffffff;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &:focus-within {
+    border-color: $domera-ink-900;
+  }
+}
