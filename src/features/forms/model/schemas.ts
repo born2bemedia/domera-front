@@ -62,3 +62,20 @@ export const briefFormSchema = z.object({
 });
 
 export type BriefFormSchema = z.infer<typeof briefFormSchema>;
+
+// 3. "Contact Doméra" inquiry (contacts page)
+export const contactFormSchema = z.object({
+  firstName: z.string().min(1, "This field is required"),
+  lastName: z.string().min(1, "This field is required"),
+  email: emailSchema,
+  phone: optionalPhoneSchema,
+  budgetRange: optionalText,
+  stylePreference: optionalText,
+  constructionTimeline: optionalText,
+  siteStatus: optionalText,
+  professionalStatus: optionalText,
+  buildLocation: optionalText,
+  additionalNotes: optionalText,
+});
+
+export type ContactFormSchema = z.infer<typeof contactFormSchema>;
