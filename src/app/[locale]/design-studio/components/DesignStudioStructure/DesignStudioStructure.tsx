@@ -40,7 +40,7 @@ export const DesignStudioStructure = () => {
             >
               {t('ctaPrimary', { fallback: '→ Find Your Dream Plan' })}
             </Link>
-            <Link href="/contact" className={styles.design_studio_structure__btnSecondary}>
+            <Link href="/contact-domera" className={styles.design_studio_structure__btnSecondary}>
               {t('ctaSecondary', { fallback: '→ Contact Studio' })}
             </Link>
           </div>
