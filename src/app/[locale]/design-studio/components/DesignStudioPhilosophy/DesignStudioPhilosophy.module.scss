@@ -1,0 +1,73 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+
+.design_studio_philosophy {
+    padding-block: 64px;
+
+    &__top {
+        margin-bottom: 40px;
+
+        &>*:not(:last-child) {
+            margin-bottom: 7px;
+        }
+    }
+
+    &__subtitle {
+        color: #5E5033;
+        font-family: var(--font-cabinet-grotesk), sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.3334;
+        letter-spacing: 0.75px;
+    }
+
+    &__title {
+        color: #121110;
+        font-family: var(--font-gambetta), serif;
+        font-size: 44px;
+        font-weight: 400;
+        line-height: 1.1364;
+        letter-spacing: -1.5px;
+    }
+
+    &__description {
+        color: #605B56;
+        font-family: var(--font-cabinet-grotesk), sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5715;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+
+        @include tablet {
+           gap: 10px;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        padding: 32px;
+        border-radius: 4px;
+        background: #F9F7F5;
+
+        @include tablet {
+           padding-block: 17px;
+        }
+    }
+
+    &__item_title {
+        color: #121110;
+        font-family: var(--font-gambetta), serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.3637;
+        letter-spacing: -0.25px;
+    }
+}

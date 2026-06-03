@@ -1,0 +1,11 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+
+.design_studio_image {
+  background: url('/images/design-studio/image.jpg') center / cover no-repeat;
+  height: 490px;
+
+  @include mobile {
+    background: url('/images/design-studio/image-mobile.jpg') center / cover no-repeat;
+  }
+}

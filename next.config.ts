@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  watchOptions: {
+    pollIntervalMs: 1000,
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

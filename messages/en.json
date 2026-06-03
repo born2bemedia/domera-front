@@ -4,7 +4,10 @@
     "subtitle1": "Residential planning shaped by structure, clarity, and real-world application.",
     "subtitle2": "House, garage, and outdoor layouts designed to function, adapt, and remain relevant over time.",
     "ctaPrimary": "→ Begin Your Project",
-    "ctaSecondary": "→ Explore Studio"
+    "ctaSecondary": "→ Explore Studio",
+    "title": "Doméra Identity",
+    "descriptionOne": "Doméra was created with one clear purpose — to design residential plans that balance structure, beauty, and build-readiness. We are a curated studio focused on precision, proportion, and purposeful architecture.",
+    "descriptionTwo": "Every plan we create is shaped by spatial logic, functional flow, and timeless design principles."
   },
   "homeHowItWorks": {
     "step1Title": "Define Your Requirements",
@@ -131,6 +134,75 @@
     "descriptionLine3": "Our principles:",
     "footnote": "Every plan is created to be built, lived in, and refined when needed."
   },
+  "designStudioAdaptation": {
+    "title": "Designed for Adaptation",
+    "descriptionOne": "While our plans are ready-to-build, they are not rigid.",
+    "descriptionTwo": "We understand that every client, location, and project timeline differs. That is why Doméra plans are created with flexibility in mind — allowing adjustments in layout, materials, and configuration without compromising architectural integrity.",
+    "descriptionThree": "A well-designed plan should guide construction — not complicate it."
+  },
+  "designStudioApproach": {
+    "itemTitleOne": "Clarity",
+    "itemDescriptionOne": "Design must be easy to understand, evaluate, and execute.",
+    "itemTitleTwo": "Balance",
+    "itemDescriptionTwo": "Proportion, symmetry, and spatial rhythm define architectural quality.",
+    "itemTitleThree": "Function",
+    "itemDescriptionThree": "Every square meter must serve a purpose.",
+    "title": "Our Approach",
+    "descriptionOne": "Our work is guided by three core principles:"
+  },
+  "designStudioFor": {
+    "for-items-one-title": "Structured architectural thinking",
+    "for-items-two-title": "Timeless aesthetics",
+    "for-items-three-title": "Efficient planning",
+    "for-items-four-title": "Build-ready documentation",
+    "title": "Who We Design For",
+    "rightDescriptionOne": "Doméra is built for individuals who value:",
+    "descriptionTwo": "Whether you are planning your primary residence, a secondary home, or an investment property, our studio provides the architectural foundation to move forward confidently."
+  },
+  "designStudioPhilosophy": {
+    "itemOne": "Clear layouts create effortless movement",
+    "itemTwo": "Balanced proportions create visual harmony",
+    "itemThree": "Intelligent zoning creates functional comfort",
+    "itemFour": "Thoughtful detailing creates long-term value",
+    "title": "Our Philosophy",
+    "descriptionOne": "Architecture should not overwhelm. It should organize, guide, and elevate daily life.",
+    "descriptionTwo": "At Doméra, we believe that strong design begins with clarity:"
+  },
+  "designStudioPlans": {
+    "itemsPlanOneTitle": "Curated style categories",
+    "itemsPlanTwoTitle": "Transparent planning structure",
+    "itemsPlanThreeTitle": "Clear documentation standards",
+    "itemsPlanFourTitle": "Practical guidance for implementation",
+    "title": "Beyond Plans",
+    "descriptionOne": "Doméra is more than a collection of drawings.",
+    "descriptionTwo": "We are a planning studio committed to elevating residential architecture through:",
+    "descriptionThree": "Our focus is not trend-driven design — it is structured, long-term architecture."
+  },
+  "designStudioStandards": {
+    "itemOne": "Logical spatial organization",
+    "itemTwo": "Optimized room proportions",
+    "itemThree": "Efficient circulation paths",
+    "itemFour": "Structural practicality",
+    "itemFive": "Adaptability for customization",
+    "itemSix": "Consideration for energy efficiency",
+    "listTwoItemOne": "Spatial balance",
+    "listTwoItemTwo": "Constructive clarity",
+    "listTwoItemThree": "Compliance adaptability",
+    "listTwoItemFour": "Long-term relevance",
+    "title": "Our Standards",
+    "rightTitle": "Precision Over Volume",
+    "descriptionOne": "Every Doméra plan is developed with a consistent architectural framework:",
+    "rightDescriptionOne": "We do not focus on quantity. We focus on quality and structure.",
+    "rightDescriptionTwo": "Each plan is reviewed to ensure:",
+    "rightDescriptionThree": "Our goal is to reduce clients' uncertainty by delivering structured, understandable, and practical designs."
+  },
+  "designStudioStructure": {
+    "title": "Let’s Build With Structure",
+    "descriptionOne": "A home begins with a decision — and a well-defined plan.",
+    "descriptionTwo": "Explore our styles, refine your search, or contact our studio to begin shaping your project with clarity and confidence.",
+    "ctaPrimary": "→ Find Your Dream Plan",
+    "ctaSecondary": "→ Contact Studio"
+  },
   "forgotPasswordPage": {
     "heroTitle": "Forgot Password?",
     "heroSubtitle": "Enter your username or email address, and we’ll send you a secure link to set a new password.",
@@ -141,11 +213,11 @@
     "resetPassword": "Reset Password"
   },
   "journalPage": {
+    "articleContents": "Article contents",
     "heroTitle": "Travel, Told Differently",
     "heroSubtitleOne": "Less scrolling. More discovering.",
     "heroDescription": "From exploring hidden corners of iconic cities to understanding how to plan your journey more efficiently, each article is created to support both inspiration and decision-making.",
-    "noArticles": "No articles found",
-    "articleContents": "Article contents"
+    "noArticles": "No articles found"
   },
   "account": {
     "heroTitle": "Welcome Back to Domera",
@@ -593,8 +665,8 @@
     "contact-domera": "Contact Doméra",
     "register": "Register",
     "login": "Login",
-    "close": "close",
-    "menu": "menu"
+    "close": "Close menu",
+    "menu": "Open menu"
   },
   "priceList": {
     "title": "Check our full price list",
