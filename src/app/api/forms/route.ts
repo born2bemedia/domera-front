@@ -27,15 +27,56 @@ type BriefPayload = {
   projectNotes?: string;
 };
 
+type ContactPayload = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  budgetRange?: string;
+  stylePreference?: string;
+  constructionTimeline?: string;
+  siteStatus?: string;
+  professionalStatus?: string;
+  buildLocation?: string;
+  additionalNotes?: string;
+};
+
+type QuotePayload = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  designPreferences?: string;
+  additionalInformation?: string;
+  preferredContact?: string;
+  projectType?: string[];
+  refinementsHome?: string[];
+  refinementsGarage?: string[];
+  refinementsGazebo?: string[];
+  additionalComments?: string;
+  preferredStartDate?: string;
+  hasTimeline?: string;
+  timelineFileName?: string;
+};
+
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const body = (await request.json()) as {
-      formType: 'request' | 'brief';
-      data: (RequestPayload | BriefPayload) & { recaptcha?: string };
+      formType: 'request' | 'brief' | 'contact' | 'quote';
+      data: (RequestPayload | BriefPayload | ContactPayload | QuotePayload) & {
+        recaptcha?: string;
+      };
     };
 
     const { formType } = body;
-    const rawData = body.data as (RequestPayload | BriefPayload) & { recaptcha?: string };
+    const rawData = body.data as (
+      | RequestPayload
+      | BriefPayload
+      | ContactPayload
+      | QuotePayload
+    ) & {
+      recaptcha?: string;
+    };
 
     const recaptcha = rawData.recaptcha;
 
@@ -209,6 +250,77 @@ export async function POST(request: Request): Promise<NextResponse> {
       });
 
       console.log(`Brief submission received from ${userEmail}`);
+    } else if (formType === 'contact') {
+      const d = data as unknown as ContactPayload;
+      userEmail = d.email;
+      subject = 'Contact Doméra — New Inquiry';
+      html = `
+        <h2>Contact Doméra — New Inquiry</h2>
+        <p><strong>First name:</strong> ${escapeHtml(d.firstName)}</p>
+        <p><strong>Last name:</strong> ${escapeHtml(d.lastName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(d.email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(d.phone)}</p>
+        <p><strong>Estimated budget range:</strong> ${escapeHtml(d.budgetRange)}</p>
+        <p><strong>Style preference:</strong> ${escapeHtml(d.stylePreference)}</p>
+        <p><strong>Expected construction timeline:</strong> ${escapeHtml(d.constructionTimeline)}</p>
+        <p><strong>Site status:</strong> ${escapeHtml(d.siteStatus)}</p>
+        <p><strong>Professional status:</strong> ${escapeHtml(d.professionalStatus)}</p>
+        <p><strong>Intended build location:</strong> ${escapeHtml(d.buildLocation)}</p>
+        <p><strong>Additional notes:</strong> ${escapeHtml(d.additionalNotes)}</p>
+      `;
+
+      await sgMail.send({
+        to: adminEmail,
+        from: fromEmail,
+        subject,
+        html,
+      });
+
+      console.log(`Contact inquiry received from ${userEmail}`);
+    } else if (formType === 'quote') {
+      const d = data as unknown as QuotePayload;
+      userEmail = d.email;
+      subject = 'Custom Quote Request — New Planning Inquiry';
+      const projectTypes = Array.isArray(d.projectType) ? d.projectType : [];
+      const refinementGroups: { label: string; items?: string[] }[] = [
+        { label: 'Residential refinements', items: d.refinementsHome },
+        { label: 'Garage refinements', items: d.refinementsGarage },
+        { label: 'Gazebo refinements', items: d.refinementsGazebo },
+      ];
+      const refinementsHtml = refinementGroups
+        .filter((g) => Array.isArray(g.items) && g.items.length > 0)
+        .map(
+          (g) =>
+            `<p><strong>${g.label}:</strong></p><ul>${(g.items ?? [])
+              .map((r) => `<li>${escapeHtml(r)}</li>`)
+              .join('')}</ul>`,
+        )
+        .join('');
+      html = `
+        <h2>Custom Quote Request — New Planning Inquiry</h2>
+        <p><strong>First name:</strong> ${escapeHtml(d.firstName)}</p>
+        <p><strong>Last name:</strong> ${escapeHtml(d.lastName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(d.email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(d.phone)}</p>
+        <p><strong>Design preferences:</strong> ${escapeHtml(d.designPreferences)}</p>
+        <p><strong>Additional information:</strong> ${escapeHtml(d.additionalInformation)}</p>
+        <p><strong>Preferred method of contact:</strong> ${escapeHtml(d.preferredContact)}</p>
+        <p><strong>Project type:</strong> ${escapeHtml(projectTypes.join(', '))}</p>
+        ${refinementsHtml}
+        <p><strong>Additional comments:</strong> ${escapeHtml(d.additionalComments)}</p>
+        <p><strong>Preferred project start date:</strong> ${escapeHtml(d.preferredStartDate)}</p>
+        <p><strong>Has timeline in mind:</strong> ${escapeHtml(d.hasTimeline)}</p>
+        <p><strong>Uploaded timeline file:</strong> ${escapeHtml(d.timelineFileName)}</p>
+      `;
+
+      await sgMail.send({
+        to: adminEmail,
+        from: fromEmail,
+        subject,
+        html,
+      });
+
+      console.log(`Quote request received from ${userEmail}`);
     }
   } catch (error) {
     console.error('Error submitting request:', error);

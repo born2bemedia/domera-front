@@ -47,7 +47,7 @@ export const HomeHero = () => {
             </div>
 
             <div className={styles.hero__actions}>
-              <Link href="/sign-up" className={styles.hero__btnPrimary}>
+              <Link href="/custom-quote-request" className={styles.hero__btnPrimary}>
                 {t("ctaPrimary", { fallback: "→ Begin Your Project" })}
               </Link>
               <Link href="/design-studio" className={styles.hero__btnSecondary}>
