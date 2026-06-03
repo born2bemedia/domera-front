@@ -1,13 +1,17 @@
 @use "@/shared/lib/styles/mixin.scss" as *;
 
+$ink: #121110;
+$muted: #8c897b;
+$accent: #cec8c0;
+$divider: #ddd9cc;
+
 .article {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 21px;
+  gap: 80px;
 
   @include tablet {
-    gap: 32px;
+    gap: 48px;
   }
 
   @include mobile {
@@ -16,105 +20,134 @@
   }
 }
 
-/* ── Table of contents ──────────────────────────── */
+/* ── Left column: title + sticky table of contents ── */
 
-.toc {
+.aside {
   position: sticky;
   top: 124px;
-  width: 467px;
+  width: 380px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px 16px;
-  border: 1px solid #eb5e28;
-  border-radius: 16px;
-  background: transparent;
+  gap: 10px;
   max-height: calc(100vh - 124px - 40px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: none;
 
   @include tablet {
     width: 280px;
-    top: 108px;
-    max-height: calc(100vh - 108px - 40px);
+    top: 100px;
+    gap: 28px;
+    max-height: calc(100vh - 100px - 40px);
   }
 
   @include mobile {
     position: static;
     width: 100%;
-    border-radius: 12px;
+    gap: 24px;
     max-height: none;
+  }
+}
+
+.title {
+  color: #121110;
+
+  /* Doméra/Display/D1-Mobile */
+  font-family: Gambetta;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 52px; /* 118.182% */
+  letter-spacing: -1.5px;
+  border-left: 3px solid #bba880;
+  padding-left: 16px;
+
+  @include tablet {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+
+  @include mobile {
+    font-size: 36px;
+    letter-spacing: -1.4px;
+  }
+}
+
+.toc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include mobile {
     overflow-y: visible;
   }
 
   &__item {
     all: unset;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 0;
-    border-bottom: 1px solid #ccc6ba;
+    display: block;
     width: 100%;
-    transition: opacity 0.2s ease;
-
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &:hover {
-      opacity: 0.72;
-    }
-  }
-
-  &__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: #eb5e28;
+    padding: 10px 12px;
   }
 
   &__label {
-    font-family: var(--font-plus-jakarta-sans, sans-serif);
-    font-size: 20px;
+    color: var(--Domra-Accent-700, #463c26);
+
+    font-family: var(--font-cabinet-grotesk), sans-serif;
+    font-size: 12px;
+    font-style: normal;
     font-weight: 500;
-    line-height: 1;
-    color: #eb5e28;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.75px;
 
     @include tablet {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 
+  &__item:hover &__label {
+    color: $ink;
+  }
+  &__item--active {
+    background: $accent;
+  }
   &__item--active &__label {
+    color: $ink;
     font-weight: 600;
   }
 }
 
-/* ── Content ──────────────────────────── */
+/* ── Right column: content ── */
 
 .content {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  min-width: 0;
-  max-width: 790px;
+  gap: 8px;
 }
 
 .section {
   display: flex;
+  padding: 24px;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 2px;
+  border: 1px solid #e8e4de;
+  background: #fff;
+  &:first-child {
+  }
+
+  @include mobile {
+    padding-top: 32px;
+  }
 }

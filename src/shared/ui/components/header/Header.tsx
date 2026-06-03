@@ -73,6 +73,11 @@ export const Header = () => {
   const locale = useLocale();
   const t = useTranslations("header");
 
+  const isLegalPage = normalizePath(pathname)
+    .split("/")
+    .filter(Boolean)
+    .includes("legal");
+
   const NAV_ITEMS: readonly HeaderNavItem[] = [
     { key: "home", text: t("home", { fallback: "Home" }), href: "/" },
     {
@@ -151,7 +156,7 @@ export const Header = () => {
     <header
       className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${
         isMobileMenuOpen ? styles.menuOpen : ""
-      }`}
+      } ${isLegalPage ? styles.legal : ""}`}
     >
       <div className={styles.header__topbar}>
         <div className="container">

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import type { Metadata } from "next";
 
 import { getPolicy } from "@/features/policies/api/get-policy";
@@ -38,26 +36,12 @@ export default async function PostPage({
 
   return (
     <main className={st.page}>
-      <section className={st.hero}>
-        <Image
-          src="/images/legal/dashed-path.svg"
-          alt=""
-          width={1858}
-          height={513}
-          className={st.hero__globe}
+      <div className="container">
+        <PolicyArticle
+          title={policy.title}
+          content={policy.content?.root.children ?? []}
         />
-        <div className="container">
-          <h1 className={st.hero__title}>{policy.title}</h1>
-        </div>
-      </section>
-
-      {policy.content && (
-        <section className={st.surface}>
-          <div className="container">
-            <PolicyArticle content={policy.content.root.children} />
-          </div>
-        </section>
-      )}
+      </div>
     </main>
   );
 }

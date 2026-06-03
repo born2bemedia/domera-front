@@ -102,19 +102,29 @@ export const Footer = () => {
 
   const LEGAL_ITEMS: readonly FooterLinkItem[] = [
     {
+      key: "terms",
+      text: t("terms-of-use", { fallback: "Terms and Conditions" }),
+      href: "/legal/terms-and-conditions",
+    },
+    {
       key: "privacy",
       text: t("privacy-policy-full", { fallback: "Privacy Policy" }),
       href: "/legal/privacy-policy",
     },
     {
-      key: "terms",
-      text: t("terms-of-use", { fallback: "Terms of Use" }),
-      href: "/legal/terms-and-conditions",
+      key: "cookie",
+      text: t("cookie-notice", { fallback: "Cookie Policy" }),
+      href: "/legal/cookie-policy",
     },
     {
-      key: "cookie",
-      text: t("cookie-notice", { fallback: "Cookie Notice" }),
-      href: "/legal/cookie-policy",
+      key: "refund",
+      text: t("refund-policy-full", { fallback: "Refund Policy" }),
+      href: "/legal/refund-policy",
+    },
+    {
+      key: "accessibility",
+      text: t("accessibility-policy", { fallback: "Accessibility Statement" }),
+      href: "/legal/accessibility-statement",
     },
   ] as const;
 
@@ -206,7 +216,7 @@ export const Footer = () => {
         <div className={styles.footer__divider}>
           <span className={styles.footer__dividerRule} aria-hidden />
           <p className={styles.footer__copyright}>
-          © {year} {WEBSITE_NAME} · {COMPANY_NAME} · 
+            © {year} {WEBSITE_NAME} · {COMPANY_NAME} ·
             {t("copyright", {
               fallback: `All rights reserved`,
               year,

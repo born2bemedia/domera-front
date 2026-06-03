@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
+import { cn } from '@/shared/lib/helpers/styles';
+
 import type { Children } from '../../model/types';
 import { PolicyContent } from '../content/PolicyContent';
 import st from './PolicyArticle.module.scss';
@@ -54,10 +56,11 @@ function groupIntoSections(content: Children[]): Section[] {
 }
 
 type PolicyArticleProps = {
+  title: string;
   content: Children[];
 };
 
-export const PolicyArticle = ({ content }: PolicyArticleProps) => {
+export const PolicyArticle = ({ title, content }: PolicyArticleProps) => {
   const sections = useMemo(() => groupIntoSections(content), [content]);
   const headings = useMemo(() => sections.filter((s) => s.title), [sections]);
 
@@ -101,28 +104,27 @@ export const PolicyArticle = ({ content }: PolicyArticleProps) => {
 
   return (
     <div className={st.article}>
-      <nav className={st.toc}>
-        {headings.map((h) => {
-          const isActive = activeId === h.id;
-          return (
-            <button
-              key={h.id}
-              type="button"
-              className={`${st.toc__item} ${isActive ? st['toc__item--active'] : ''}`}
-              onClick={() => scrollTo(h.id)}
-            >
-              {isActive && (
-                <span className={st.toc__icon} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.75 9H14.25M14.25 9L10.5 5.25M14.25 9L10.5 12.75" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              )}
-              <span className={st.toc__label}>{h.title}</span>
-            </button>
-          );
-        })}
-      </nav>
+      <aside className={st.aside}>
+        <h1 className={st.title}>{title}</h1>
+
+        {headings.length > 0 && (
+          <nav className={st.toc}>
+            {headings.map((h) => {
+              const isActive = activeId === h.id;
+              return (
+                <button
+                  key={h.id}
+                  type="button"
+                  className={cn(st.toc__item, isActive && st['toc__item--active'])}
+                  onClick={() => scrollTo(h.id)}
+                >
+                  <span className={st.toc__label}>{h.title}</span>
+                </button>
+              );
+            })}
+          </nav>
+        )}
+      </aside>
 
       <div className={st.content}>
         {sections.map((section) => (
