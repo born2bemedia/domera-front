@@ -37,6 +37,48 @@ $topbar-text: #a89f95;
     position: fixed;
   }
 
+  /* Modifier applied on policy / legal pages — extend as the design needs */
+  &.legal {
+    .header__main{
+      .header__logo{
+        .header__logoText{
+          color: #121110;
+        }
+      }
+      .header__nav{
+        .header__navItem{
+          color: #121110;
+        }
+      }
+      .header__menuToggle{
+        svg{
+          fill: #121110;
+        }
+      }
+    }
+
+    &.scrolled, &.menuOpen{
+      .header__main{
+        .header__logo{
+          .header__logoText{
+            color: #fff;
+          }
+        }
+        .header__nav{
+          .header__navItem{
+            color: #fff;
+          }
+        }
+        .header__menuToggle{
+          svg{
+            fill: #fff;
+          }
+        }
+      }
+    }
+
+  }
+
   /* ---------- Topbar ---------- */
   &__topbar {
     background: $topbar-bg;
