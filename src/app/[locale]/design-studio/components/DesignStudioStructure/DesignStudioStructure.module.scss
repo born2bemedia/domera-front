@@ -1,0 +1,63 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+@use "@/shared/lib/styles/controls.scss" as *;
+
+
+.design_studio_structure {
+  padding-block: 64px;
+
+  &__inner {
+    min-height: 600px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: url('/images/design-studio/structure.jpg') center / cover no-repeat;
+
+    @include tablet {
+      padding: 20px;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-gambetta), serif;
+    color: #FBFAF9;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.125;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+
+    @include tablet {
+      font-size: 44px;
+      line-height: 1.1819;
+      letter-spacing: -1.5px;
+    }
+  }
+
+  &__description {
+    font-family: var(--font-cabinet-grotesk), sans-serif;
+    color: #F6F5F4;
+    font-size: 18px;
+    line-height: 1.5556;
+    max-width: 520px;
+    margin-bottom: 32px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__btnPrimary {
+    @include domera-btn-primary;
+  }
+
+  &__btnSecondary {
+    @include domera-btn-secondary;
+  }
+}

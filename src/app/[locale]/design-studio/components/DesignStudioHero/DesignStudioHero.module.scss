@@ -1,0 +1,60 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+.design_studio_hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 600px;
+  padding: 118px 0 40px;
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: 108px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__bgImage {
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  &__title {
+    font-family: var(--font-gambetta), serif;
+    color: #FAF9F8;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.125;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+
+    @include tablet {
+      font-size: 44px;
+      line-height: 1.1819;
+      letter-spacing: -1.5px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 1.5556;
+    color: #F6F5F4;
+    max-width: 800px;
+    font-family: var(--font-cabinet-grotesk), sans-serif;
+  }
+}
