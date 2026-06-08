@@ -80,8 +80,9 @@ export const HomeWhatWeCreate = () => {
                   <Image
                     src={card.image}
                     alt={card.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    width={410}
+                    height={450}
+                    unoptimized
                   />
                 </div>
                 <div className={styles.wwc__cardContent}>

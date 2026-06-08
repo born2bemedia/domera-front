@@ -211,17 +211,10 @@ $muted: #a89f95;
     &__itemImage {
       flex: none;
       width: 100%;
-      height: 200px;
-    }
-
-    &__item.active &__itemImage {
       height: 360px;
     }
 
-    &__itemDetails {
-      display: none;
-    }
-
+    &__itemDetails,
     &__item.active &__itemDetails {
       display: flex;
       flex: none;
