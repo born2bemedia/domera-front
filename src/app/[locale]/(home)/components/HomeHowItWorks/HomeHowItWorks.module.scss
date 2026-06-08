@@ -85,6 +85,11 @@ $muted: #a89f95;
     line-height: 30px;
     letter-spacing: -0.25px;
     color: $ink-50;
+    @include tablet{
+      br{
+        display: none;
+      }
+    } 
   }
 
   &__stepDescription {
