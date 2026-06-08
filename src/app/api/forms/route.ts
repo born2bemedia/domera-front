@@ -181,7 +181,7 @@ export async function POST(request: Request): Promise<NextResponse> {
               </h1>
               <p style="margin: 0 0 32px; color: #000; font-size: 18px; font-style: normal; font-weight: 400; line-height: 28px;">
                 Thank you for contacting Doméra! We&rsquo;ve received your inquiry and are currently reviewing your request.<br><br>
-                Our team will get back to you shortly with the information you need. If you have additional questions or require immediate assistance, feel free to reach out to us at <a href="mailto:info@domeraglobal.com" style="color: #463c26; text-decoration: none;">info@domeraglobal.com</a>.
+                Our team will get back to you shortly with the information you need. If you have additional questions or require immediate assistance, feel free to reach out to us at <a href="mailto:info@doméra.com" style="color: #463c26; text-decoration: none;">info@doméra.com</a>.
               </p>
               <p style="margin: 0; color: #000; font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px;">
                 Best regards,<br>
@@ -338,7 +338,7 @@ export async function POST(request: Request): Promise<NextResponse> {
               </h1>
               <p style="margin: 0 0 32px; color: #000; font-size: 18px; font-style: normal; font-weight: 400; line-height: 28px;">
                 Thank you for contacting Doméra! We&rsquo;ve received your inquiry and are currently reviewing your request.<br><br>
-                Our team will get back to you shortly with the information you need. If you have additional questions or require immediate assistance, feel free to reach out to us at <a href="mailto:info@domeraglobal.com" style="color: #463c26; text-decoration: none;">info@domeraglobal.com</a>.
+                Our team will get back to you shortly with the information you need. If you have additional questions or require immediate assistance, feel free to reach out to us at <a href="mailto:info@doméra.com" style="color: #463c26; text-decoration: none;">info@doméra.com</a>.
               </p>
               <p style="margin: 0; color: #000; font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px;">
                 Best regards,<br>
