@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Contact Doméra - We’re Here to Help You Build Your Dream",
     description:
       "Reach out to Doméra for personalized support, project inquiries, or any questions regarding our designs and services. Let’s start the conversation.",
-    images: "https://domeraglobal.com/images/meta.png",
+    images: "https://doméra.com/images/meta.png",
   },
 };
 

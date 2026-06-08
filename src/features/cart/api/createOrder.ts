@@ -262,7 +262,7 @@ const postOrder = async (
             ]),
             renderEmailParagraph('This email serves as your official booking confirmation.'),
             renderEmailParagraph(
-              `If you require any additional information before your experience begins, please contact us at ${renderEmailLink('mailto:info@domeraglobal.com', 'info@domeraglobal.com')}.`
+              `If you require any additional information before your experience begins, please contact us at ${renderEmailLink('mailto:info@doméra.com', 'info@doméra.com')}.`
             ),
             renderEmailParagraph(
               'We can’t wait for you to explore, discover, and create unforgettable memories.'

@@ -115,7 +115,7 @@ export async function POST(request: Request): Promise<NextResponse> {
         <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fff; overflow: hidden;">
           <tr>
             <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://domeraglobal.com/images/email-header.png" alt="Domera Logo">
+              <img style="width: 100%; height: auto;" src="https://doméra.com/images/email-header.png" alt="Domera Logo">
             </td>
           </tr>
           <tr>
@@ -130,7 +130,7 @@ export async function POST(request: Request): Promise<NextResponse> {
                 We understand that timely communication is critical to your business objectives. One of our consultants will reach out to you within <b>24–48 hours</b> to discuss how we can best support your goals.
               </p>
               <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                In the meantime, feel free to explore our latest insights at <a href="https://domeraglobal.com" style="color: #333;font-weight: 700;text-decoration: underline;" target="_blank">domeraglobal.com</a>.
+                In the meantime, feel free to explore our latest insights at <a href="https://doméra.com" style="color: #333;font-weight: 700;text-decoration: underline;" target="_blank">doméra.com</a>.
               </p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
               <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
                 Best regards,<br>
@@ -140,13 +140,13 @@ export async function POST(request: Request): Promise<NextResponse> {
                 </span>
               </p>
               <p style="margin: 0; color: #333;font-size: 18px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <a href="https://domeraglobal.com" target="_blank" style="color: #333;font-weight: 400;text-decoration: underline;">domeraglobal.com</a>
+                <a href="https://doméra.com" target="_blank" style="color: #333;font-weight: 400;text-decoration: underline;">doméra.com</a>
               </p>
             </td>
           </tr>
           <tr>
             <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://domeraglobal.com/images/email-footer.png" alt="Domera Logo">
+              <img style="width: 100%; height: auto;" src="https://doméra.com/images/email-footer.png" alt="Domera Logo">
             </td>
           </tr>
         </table>
