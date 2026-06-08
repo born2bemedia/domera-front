@@ -162,55 +162,36 @@ export async function POST(request: Request): Promise<NextResponse> {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request Received - Domera</title>
+  <title>Request Received - Doméra</title>
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #fff; color: #333;">
-  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #fff;">
+<body style="margin: 0; padding: 0; font-family: 'Cabinet Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif; background-color: #fbfaf9; color: #000;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #fbfaf9;">
     <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fff; overflow: hidden;">
+      <td align="center" style="padding: 0;">
+        <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fbfaf9; overflow: hidden;">
           <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://domeraglobal.com/images/email-header.png" alt="Domera Logo">
+            <td style="padding: 0; line-height: 0;">
+              <img style="display: block; width: 100%; height: auto;" src="https://xn--domra-dsa.com/images/email-header.png" alt="Doméra">
             </td>
           </tr>
           <tr>
-            <td style="padding: 32px; background: #fff;">
-              <p style="margin: 0 0 32px; color: #333;font-size: 24px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Dear ${safeFirstName},
+            <td style="padding: 40px 20px; background: #fbfaf9;">
+              <h1 style="margin: 0 0 32px; color: #000; font-family: Georgia, 'Times New Roman', serif; font-size: 36px; font-style: normal; font-weight: 700; line-height: 44px; letter-spacing: -1px;">
+                Hello ${safeFirstName},
+              </h1>
+              <p style="margin: 0 0 32px; color: #000; font-size: 18px; font-style: normal; font-weight: 400; line-height: 28px;">
+                Thank you for contacting Doméra! We&rsquo;ve received your inquiry and are currently reviewing your request.<br><br>
+                Our team will get back to you shortly with the information you need. If you have additional questions or require immediate assistance, feel free to reach out to us at <a href="mailto:info@domeraglobal.com" style="color: #463c26; text-decoration: none;">info@domeraglobal.com</a>.
               </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Thank you for choosing Domera as your strategic partner. We have successfully received your request and are pleased to confirm your engagement.<br>
-                Our team is currently reviewing your requirements to ensure our resources align with your business objectives.
-              </p>
-              <span style="display: block;padding: 20px;background:#384CE3;margin: 32px 0;color: #FFF;font-size: 14px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Engagement Summary:<br><br>
-                <ul style="margin: 0;padding-left: 16px;">
-                  <li>
-                    Service: <strong>${escapeHtml(d.service)}</strong>
-                  </li>
-                </ul>
-              </span>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <b>What Happens Next?</b><br>
-                You will receive an email shortly containing payment instructions. Once those details are finalized, we will move forward with the next phase of your project.<br>
-                We look forward to a successful collaboration.
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
+              <p style="margin: 0; color: #000; font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px;">
                 Best regards,<br>
-                <strong style="color: #333;">The Domera Team</strong><br>
-                <span style="font-size:16px;">
-                  Strategic Solutions for Modern Business
-                </span>
-              </p>
-              <p style="margin: 0; color: #333;font-size: 18px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <a href="https://domeraglobal.com" target="_blank" style="color: #333;font-weight: 400;text-decoration: underline;">domeraglobal.com</a>
+                The Doméra Team
               </p>
             </td>
           </tr>
           <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://domeraglobal.com/images/email-footer.png" alt="Domera Logo">
+            <td style="padding: 0; line-height: 0;">
+              <img style="display: block; width: 100%; height: auto;" src="https://xn--domra-dsa.com/images/email-footer.png" alt="Doméra">
             </td>
           </tr>
         </table>
@@ -223,9 +204,15 @@ export async function POST(request: Request): Promise<NextResponse> {
       };
 
       await sgMail.send(msg);
-      await sgMail.send(userMsg);
-
-      console.log(`Request confirmation email sent to ${userEmail}`);
+      try {
+        await sgMail.send(userMsg);
+        console.log(`Request confirmation email sent to ${userEmail}`);
+      } catch (userErr) {
+        console.error(
+          'Failed to send user confirmation email:',
+          (userErr as { response?: { body?: unknown } })?.response?.body ?? userErr,
+        );
+      }
     } else if (formType === 'brief') {
       const d = data as unknown as BriefPayload;
       userEmail = d.email;
@@ -319,6 +306,69 @@ export async function POST(request: Request): Promise<NextResponse> {
         subject,
         html,
       });
+
+      const safeFirstName = escapeHtml(d.firstName);
+
+      const userMsg = {
+        to: d.email,
+        from: fromEmail,
+        subject: "We've Received Your Request",
+        html: `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Received - Doméra</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Cabinet Grotesk', Arial, 'Helvetica Neue', Helvetica, sans-serif; background-color: #fbfaf9; color: #000;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #fbfaf9;">
+    <tr>
+      <td align="center" style="padding: 0;">
+        <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fbfaf9; overflow: hidden;">
+          <tr>
+            <td style="padding: 0; line-height: 0;">
+              <img style="display: block; width: 100%; height: auto;" src="https://xn--domra-dsa.com/images/email-header.png" alt="Doméra">
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 40px 20px; background: #fbfaf9;">
+              <h1 style="margin: 0 0 32px; color: #000; font-family: Georgia, 'Times New Roman', serif; font-size: 36px; font-style: normal; font-weight: 700; line-height: 44px; letter-spacing: -1px;">
+                Hello ${safeFirstName},
+              </h1>
+              <p style="margin: 0 0 32px; color: #000; font-size: 18px; font-style: normal; font-weight: 400; line-height: 28px;">
+                Thank you for contacting Doméra! We&rsquo;ve received your inquiry and are currently reviewing your request.<br><br>
+                Our team will get back to you shortly with the information you need. If you have additional questions or require immediate assistance, feel free to reach out to us at <a href="mailto:info@domeraglobal.com" style="color: #463c26; text-decoration: none;">info@domeraglobal.com</a>.
+              </p>
+              <p style="margin: 0; color: #000; font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px;">
+                Best regards,<br>
+                The Doméra Team
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 0; line-height: 0;">
+              <img style="display: block; width: 100%; height: auto;" src="https://xn--domra-dsa.com/images/email-footer.png" alt="Doméra">
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+      `,
+      };
+
+      try {
+        await sgMail.send(userMsg);
+        console.log(`Quote confirmation email sent to ${userEmail}`);
+      } catch (userErr) {
+        console.error(
+          'Failed to send user confirmation email:',
+          (userErr as { response?: { body?: unknown } })?.response?.body ?? userErr,
+        );
+      }
 
       console.log(`Quote request received from ${userEmail}`);
     }

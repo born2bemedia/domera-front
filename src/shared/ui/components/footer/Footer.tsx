@@ -171,8 +171,8 @@ export const Footer = () => {
         <div className={styles.footer__container}>
           <div className={styles.footer__info}>
             <Link href="/" className={styles.footer__brand} aria-label="Doméra">
-              <span className={styles.footer__brandMark}>D</span>
-              <span className={styles.footer__brandName}>Doméra</span>
+              {/**eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.svg" alt="Doméra" />
             </Link>
 
             <p className={styles.footer__tagline}>

@@ -41,8 +41,8 @@ $topbar-text: #a89f95;
   &.legal {
     .header__main{
       .header__logo{
-        .header__logoText{
-          color: #121110;
+        img{
+          filter: invert(1);
         }
       }
       .header__nav{
@@ -60,8 +60,8 @@ $topbar-text: #a89f95;
     &.scrolled, &.menuOpen{
       .header__main{
         .header__logo{
-          .header__logoText{
-            color: #fff;
+          img{
+            filter: brightness(0) invert(1);
           }
         }
         .header__nav{
@@ -212,7 +212,7 @@ $topbar-text: #a89f95;
 
   /* ---------- Actions ---------- */
   &__actions {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
@@ -293,7 +293,7 @@ $topbar-text: #a89f95;
   }
 
   &__mobileActions {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 8px;
 

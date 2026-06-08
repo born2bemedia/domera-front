@@ -1,6 +1,6 @@
 import { WEBSITE_EMAIL, WEBSITE_REGISTERED_ADDRESS } from '@/shared/lib/constants/constants';
 
-const WEBSITE_URL = 'https://domeraglobal.com';
+const WEBSITE_URL = 'https://doméra.com';
 const EMAIL_HEADER_IMAGE = `${WEBSITE_URL}/images/email-header.png`;
 const EMAIL_FOOTER_LOGO_IMAGE = `${WEBSITE_URL}/images/email-foot-logo.png`;
 
@@ -108,7 +108,7 @@ export const createBrandedEmailHtml = ({
                               rel="noopener noreferrer"
                               style="color: #0f0f19; text-decoration: underline;"
                             >
-                              domeraglobal.com
+                              doméra.com
                             </a>
                           </td>
                         </tr>
