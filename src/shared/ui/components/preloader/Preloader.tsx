@@ -2,21 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-import Lottie from 'lottie-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export const Preloader: React.FC = () => {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isVisible, setIsVisible] = useState<boolean>(true);
-  const [animationData, setAnimationData] = useState<Record<string, unknown> | null>(null);
-
-  useEffect(() => {
-    // Load Lottie animation data immediately
-    fetch('/preloader.json')
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((err) => console.error('Failed to load preloader animation:', err));
-  }, []);
 
   useEffect(() => {
     // Reset preloader state on pathname change (async to avoid cascading renders)
@@ -34,7 +25,7 @@ export const Preloader: React.FC = () => {
     // Check if page is already loaded
     if (typeof window !== 'undefined' && document.readyState === 'complete') {
       // Page already loaded, hide preloader after minimum display time
-      const timer = setTimeout(hidePreloader, 3000);
+      const timer = setTimeout(hidePreloader, 2000);
       return () => {
         clearTimeout(resetTimer);
         clearTimeout(timer);
@@ -69,7 +60,7 @@ export const Preloader: React.FC = () => {
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: '#161514',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -79,14 +70,12 @@ export const Preloader: React.FC = () => {
         visibility: isVisible ? 'visible' : 'hidden',
       }}
     >
-      {animationData && (
-        <Lottie
-          animationData={animationData}
-          style={{ width: 400, height: 'auto', maxWidth: '50%' }}
-          loop={true}
-          autoplay={true}
-        />
-      )}
+      <DotLottieReact
+        src="/preloader.lottie"
+        style={{ width: 400, height: 'auto', maxWidth: '50%' }}
+        loop
+        autoplay
+      />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 
 import { FormsPopupRenderer } from "@/features/forms";
 
-import { CookiePopup, Footer, Header } from "@/shared/ui/components";
+import { CookiePopup, Footer, Header, Preloader } from "@/shared/ui/components";
 
 import { routing } from "@/i18n/routing";
 
@@ -31,6 +31,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider>
+      <Preloader />
       <Header />
       {children}
       <Footer />
