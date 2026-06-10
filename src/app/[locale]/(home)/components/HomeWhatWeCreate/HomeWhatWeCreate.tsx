@@ -51,9 +51,6 @@ export const HomeWhatWeCreate = () => {
       <div className="container">
         <div className={styles.wwc__inner}>
           <div className={styles.wwc__head}>
-            <p className={styles.wwc__label}>
-              {t("label", { fallback: "WHAT WE CREATE" })}
-            </p>
             <div className={styles.wwc__titleRow}>
               <span className={styles.wwc__accent} aria-hidden />
               <h2 className={styles.wwc__title}>

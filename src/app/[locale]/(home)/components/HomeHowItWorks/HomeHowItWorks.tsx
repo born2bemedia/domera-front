@@ -58,9 +58,6 @@ export const HomeHowItWorks = () => {
       <div className="container">
         <div className={styles.how__inner}>
           <div className={styles.how__head}>
-            <p className={styles.how__label}>
-              {t("label", { fallback: "HOW IT WORKS" })}
-            </p>
             <h2 className={styles.how__title}>
               {t("title", { fallback: "How It Works" })}
             </h2>

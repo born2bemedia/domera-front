@@ -46,9 +46,6 @@ export const HomeWhyDomera = () => {
 
       <div className={styles.why__content}>
         <div className={styles.why__head}>
-          <p className={styles.why__label}>
-            {t("label", { fallback: "WHY DOMÉRA" })}
-          </p>
           <div className={styles.why__textGroup}>
             <h2 className={styles.why__title}>
               {t("title", { fallback: "Why Doméra" })}

@@ -45,7 +45,6 @@ export const DesignStudioApproach = () => {
     <section className={styles.design_studio_approach}>
       <div className={`${styles.design_studio_approach__container} container`}>
         <div className={styles.design_studio_approach__top}>
-          <p className={styles.design_studio_approach__subtitle}>{title}</p>
           <h2 className={`${styles.design_studio_approach__title} title-line`}>{title}</h2>
           <div className={styles.design_studio_approach__description}>
             <p>

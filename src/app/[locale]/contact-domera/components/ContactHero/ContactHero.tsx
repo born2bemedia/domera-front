@@ -11,7 +11,7 @@ export const ContactHero = async () => {
     <section className={styles.hero}>
       <div className={styles.hero__bg} aria-hidden>
         <Image
-          src="/images/home/domera/hero-bg.png"
+          src="/images/contacts/hero-bg.png"
           alt=""
           fill
           priority
