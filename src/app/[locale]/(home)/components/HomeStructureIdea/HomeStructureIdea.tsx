@@ -25,9 +25,6 @@ export const HomeStructureIdea = async () => {
       <div className="container">
         <div className={styles.structure__inner}>
           <div className={styles.structure__head}>
-            <p className={styles.structure__label}>
-              {t("label", { fallback: "STRUCTURE YOUR IDEA" })}
-            </p>
             <div className={styles.structure__titleBlock}>
               <div className={styles.structure__titleRow}>
                 <span className={styles.structure__accent} aria-hidden />

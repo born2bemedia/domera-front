@@ -262,11 +262,6 @@ export const BriefForm = () => {
           : t("brief.submit", { fallback: "→ Submit Your Brief" })}
       </button>
 
-      <p className={styles.brief__caption}>
-        {t("brief.responseNote", {
-          fallback: "We respond within 2 business days.",
-        })}
-      </p>
       </form>
     </>
   );

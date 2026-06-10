@@ -109,7 +109,8 @@
     "label": "STYLE LIBRARY",
     "title": "Style Library",
     "subtitle": "Distinct approaches to organizing space — structured, consistent, and adaptable across different environments.",
-    "next": "→ Next"
+    "next": "→ Next",
+    "prev": "← Previous"
   },
   "homeWhatWeCreate": {
     "homePlansTitle": "Home Plans",
@@ -578,7 +579,7 @@
       "projectSchedule": "Project Schedule",
       "stylePreferences": "Style Preferences",
       "projectNotes": "Project Notes",
-      "submit": "→ Submit Your Brief",
+      "submit": "→ Send Inquiry",
       "responseNote": "We respond within 2 business days."
     },
     "returnHome": "Return to home page",
