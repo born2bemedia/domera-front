@@ -226,6 +226,9 @@ export const HomeStyleLibrary = () => {
   const goToNext = () =>
     setActiveIndex((prev) => (prev + 1) % SLIDES.length);
 
+  const goToPrev = () =>
+    setActiveIndex((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+
   const activeSlide = SLIDES[activeIndex];
 
   return (
@@ -307,6 +310,16 @@ export const HomeStyleLibrary = () => {
                 ))}
               </div>
             </div>
+
+            {activeIndex > 0 && (
+              <button
+                type="button"
+                className={styles.style__prev}
+                onClick={goToPrev}
+              >
+                {t("prev", { fallback: "← Prev" })}
+              </button>
+            )}
 
             <button
               type="button"

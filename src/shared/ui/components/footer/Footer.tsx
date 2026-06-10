@@ -216,7 +216,7 @@ export const Footer = () => {
         <div className={styles.footer__divider}>
           <span className={styles.footer__dividerRule} aria-hidden />
           <p className={styles.footer__copyright}>
-            © {year} {WEBSITE_NAME} · {COMPANY_NAME} ·
+            © {year} {WEBSITE_NAME} · {COMPANY_NAME} ·{` `}
             {t("copyright", {
               fallback: `All rights reserved`,
               year,

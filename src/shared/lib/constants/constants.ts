@@ -1,4 +1,4 @@
-export const WEBSITE_EMAIL = 'info@domera.com';
+export const WEBSITE_EMAIL = 'info@doméra.com';
 export const WEBSITE_PHONE = '';
 export const WEBSITE_NAME = 'Doméra';
 export const COMPANY_NAME = 'Homax EOOD';
