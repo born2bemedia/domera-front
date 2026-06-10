@@ -105,7 +105,6 @@ export const DesignStudioStandards = () => {
           </div>
           <span className={styles.design_studio_standards__divider}></span>
           <div>
-            <p className={styles.design_studio_standards__right_subtitle}>{rightTitle}</p>
             <h2 className={styles.design_studio_standards__right_title}>{rightTitle}</h2>
             <div className={styles.design_studio_standards__right_description}>
               <p>
