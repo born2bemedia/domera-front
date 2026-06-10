@@ -86,7 +86,6 @@ export const DesignStudioStandards = () => {
       <div className="container">
         <div className={styles.design_studio_standards__row}>
           <div>
-            <p className={styles.design_studio_standards__subtitle}>{title}</p>
             <h2 className={`${styles.design_studio_standards__title} title-line`}>{title}</h2>
             <div className={styles.design_studio_standards__description}>
               <p>

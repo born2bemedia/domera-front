@@ -42,7 +42,6 @@ export const DesignStudioPhilosophy = () => {
     <section className={styles.design_studio_philosophy}>
       <div className="container">
         <div className={styles.design_studio_philosophy__top}>
-          <p className={styles.design_studio_philosophy__subtitle}>{title}</p>
           <h2 className={`${styles.design_studio_philosophy__title} title-line`}>{title}</h2>
           <div className={styles.design_studio_philosophy__description}>
             <p>

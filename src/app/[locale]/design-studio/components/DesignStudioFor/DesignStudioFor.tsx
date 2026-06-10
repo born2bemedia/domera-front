@@ -42,7 +42,6 @@ export const DesignStudioFor = () => {
     <section className={styles.design_studio_for}>
       <div className="container">
         <div className={styles.design_studio_for__top}>
-          <p className={styles.design_studio_for__subtitle}>{title}</p>
           <h2 className={styles.design_studio_for__title}>{title}</h2>
           <div className={styles.design_studio_for__description}>
             <p>

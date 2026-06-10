@@ -236,9 +236,6 @@ export const HomeStyleLibrary = () => {
       <div className="container">
         <div className={styles.style__inner}>
           <div className={styles.style__head}>
-            <p className={styles.style__label}>
-              {t("label", { fallback: "STYLE LIBRARY" })}
-            </p>
             <div className={styles.style__headText}>
               <h2 className={styles.style__title}>
                 {t("title", { fallback: "Style Library" })}
