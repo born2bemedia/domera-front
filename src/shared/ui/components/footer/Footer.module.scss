@@ -11,6 +11,7 @@ $muted: #7a7067;
 $rule-gold: #463c26;
 $rule: #2b2825;
 $copyright: #5a534b;
+$topbar-text: #a89f95;
 
 .footer {
   background: $bg;
@@ -38,7 +39,7 @@ $copyright: #5a534b;
     display: flex;
     align-items: center;
     gap: 8px;
-    img{
+    img {
       width: 280px;
       height: auto;
     }
@@ -73,17 +74,25 @@ $copyright: #5a534b;
 
   &__socials {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 14px;
-    line-height: 22px;
+    align-items: center;
+    gap: 8px;
+    height: 24px;
 
     a {
-      color: $ink-light;
-      transition: opacity 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $topbar-text;
+      transition: color 0.2s ease;
+
+      svg {
+        display: block;
+        width: 16px;
+        height: 16px;
+      }
 
       &:hover {
-        opacity: 0.7;
+        color: $ink-50;
       }
     }
   }
