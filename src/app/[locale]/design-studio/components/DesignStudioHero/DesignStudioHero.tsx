@@ -39,7 +39,7 @@ export const DesignStudioHero = () => {
           <p className={styles.design_studio_hero__subtitle}>
             {t('descriptionTwo', {
               fallback:
-                'Every plan we create is shaped by spatial logic, functional flow, and timeless design principles.',
+                'Every plan we offer is shaped by spatial logic, functional flow, and timeless design principles.',
             })}
           </p>
         </div>
