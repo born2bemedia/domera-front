@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
@@ -18,7 +15,6 @@ type PlanItem = {
 
 export const HomePlanCustomization = () => {
   const t = useTranslations("homePlanCustomization");
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const ITEMS: readonly PlanItem[] = [
     {
@@ -70,6 +66,9 @@ export const HomePlanCustomization = () => {
       <div className="container">
         <div className={styles.plan__inner}>
           <div className={styles.plan__head}>
+            <span className={styles.plan__label}>
+              {t("label", { fallback: "STRUCTURE YOUR IDEA" })}
+            </span>
             <div className={styles.plan__titleBlock}>
               <div className={styles.plan__titleRow}>
                 <span className={styles.plan__accent} aria-hidden />
@@ -87,32 +86,19 @@ export const HomePlanCustomization = () => {
           </div>
 
           <div className={styles.plan__items}>
-            {ITEMS.map((item, index) => {
-              const isActive = index === activeIndex;
+            {ITEMS.map((item, index) => (
+              <div key={item.key} className={styles.plan__item}>
+                <div className={styles.plan__itemImage}>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
 
-              return (
-                <div
-                  key={item.key}
-                  className={`${styles.plan__item} ${
-                    isActive ? styles.active : ""
-                  }`}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onFocus={() => setActiveIndex(index)}
-                  onClick={() => setActiveIndex(index)}
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={isActive}
-                >
-                  <div className={styles.plan__itemImage}>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-
-                  <div className={styles.plan__itemDetails}>
+                <div className={styles.plan__itemDetails}>
+                  <div className={styles.plan__detailContent}>
                     <span className={styles.plan__badge}>{index + 1}</span>
                     <div className={styles.plan__detailText}>
                       <h3 className={styles.plan__detailTitle}>{item.title}</h3>
@@ -122,13 +108,16 @@ export const HomePlanCustomization = () => {
                         ))}
                       </ul>
                     </div>
-                    <Link href="/custom-quote-request" className={styles.plan__cta}>
-                      {t("cta", { fallback: "→ Request a Customization" })}
-                    </Link>
                   </div>
+                  <Link
+                    href="/custom-quote-request"
+                    className={styles.plan__cta}
+                  >
+                    {t("cta", { fallback: "→ Request a Customization" })}
+                  </Link>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>

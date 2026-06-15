@@ -55,8 +55,15 @@
     &__items {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        row-gap: 40px;
+        gap: 40px 50px;
         margin-bottom: 40px;
+        margin-top: 40px;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 0;
+        }
     }
 
     &__item {
@@ -75,12 +82,8 @@
     &__item_title {
         color: #CEC8C0;
         font-family: var(--font-cabinet-grotesk), sans-serif;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 400;
-        line-height: 1.5715;
-
-        @include mobile {
-            max-width: 122px;
-        }
+        line-height: 1.5556;
     }
 }
