@@ -66,9 +66,6 @@ export const HomePlanCustomization = () => {
       <div className="container">
         <div className={styles.plan__inner}>
           <div className={styles.plan__head}>
-            <span className={styles.plan__label}>
-              {t("label", { fallback: "STRUCTURE YOUR IDEA" })}
-            </span>
             <div className={styles.plan__titleBlock}>
               <div className={styles.plan__titleRow}>
                 <span className={styles.plan__accent} aria-hidden />

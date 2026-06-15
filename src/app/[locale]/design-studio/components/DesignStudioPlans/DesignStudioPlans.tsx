@@ -43,9 +43,6 @@ export const DesignStudioPlans = () => {
       <div className="container">
         <div className={styles.design_studio_plans__row}>
           <div>
-            <p className={styles.design_studio_plans__subtitle}>
-              {t('subtitle', { fallback: 'Beyond Plans' })}
-            </p>
             <h2 className={`${styles.design_studio_plans__title} title-line`}>{title}</h2>
             <div className={styles.design_studio_plans__description}>
               <p>
