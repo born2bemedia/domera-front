@@ -20,7 +20,6 @@ export default async function DesignStudioPage() {
       <DesignStudioApproach />
       <DesignStudioFor />
       <DesignStudioPlans />
-      <DesignStudioImage />
       <DesignStudioStructure />
     </>
   );
