@@ -19,20 +19,6 @@ export default async function Home() {
       <HomeWhyDomera />
       <HomeStyleLibrary />
       <HomePlanCustomization />
-      <Image
-        src="/images/home/image-separator-desktop.png"
-        alt="Style Library"
-        width={1440}
-        height={240}
-        className={styles.imageSeparatorDesktop}
-      />
-      <Image
-        src="/images/home/image-separator-mobile.png"
-        alt="Style Library"
-        width={375}
-        height={100}
-        className={styles.imageSeparatorMobile}
-      />
       <HomeHowItWorks />
       <HomeStructureIdea />
     </>
